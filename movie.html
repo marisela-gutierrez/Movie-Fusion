@@ -12,33 +12,31 @@
     <link rel="stylesheet" href="assests/style.css" />
   </head>
   <body>
-    <header></header>
-    <main class="container">
+    <header>Movie/TV Title</header>
+    <main >
+      <div class="container">
       <div class="columns">
         <div class="column is-full">
           <button class="button is-info favorite">Add to Watch List</button>
         </div>
       </div>
-    <div class="columns">
-      <div class="column is-one-third poster">img</div>
-      <div class="column">
-        
-          <div class="title"><p>title</p></div>
-          <div class="year"><p>year</p></div>
-          <div class="rating">rating</div>
-          <div class="length">length</div>
-          <div class="description">description</div>
-        
+      <div class="columns">
+        <div class="column is-one-third" id="poster"></div>
+        <div class="column is-two-thirds" id="movie-info"> 
       </div>
     </div>
-      <div class="columns">
-        <div class="column is-full"><h2>Places to Watch</h2></div>
-        <div class="columns sources"></div>
+    <section class="section">
+      <div class="columns is-multiline">
+        <div class="column is-full title"><h2>Places to Watch</h2></div>
+        <div class="columns is-mobile" id="sources"></div>
       </div>
-      <div class="columns">
-        <div class="column is-full"><h2>Cast</h2></div>
-        <div class="columns cast"></div>
+    </section>
+    <section class="section">
+      <div class="columns is-multiline">
+        <div class="column is-full title"><h2>Cast</h2></div>
+        <div class="column" id = "cast"><p>filler</p></div>
       </div>
+    </section>
     </main>
     <script src="assests/script.js"></script>
   </body>
