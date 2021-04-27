@@ -13,24 +13,32 @@
   </head>
   <body>
     <header></header>
-    <main class="columns">
-      <div class="column is-full">
-        <button class="button is-info">Add to Watch List</button>
-      </div>
-      <div class="column is-one-third poster">img</div>
-      <div class="column is-two-thirds">
-        <div class="columns">
-          <div class="column title">title</div>
-          <div class="column year">year</div>
-          <div class="column rating">rating</div>
-          <div class="column length">length</div>
-          <div class="column description">description</div>
+    <main class="container">
+      <div class="columns">
+        <div class="column is-full">
+          <button class="button is-info favorite">Add to Watch List</button>
         </div>
       </div>
-      <div class="column"><h2>Places to Watch</h2></div>
-      <div class="columns sources"></div>
-      <div class="column"><h2>Cast</h2></div>
-      <div class="columns cast"></div>
+    <div class="columns">
+      <div class="column is-one-third poster">img</div>
+      <div class="column">
+        
+          <div class="title"><p>title</p></div>
+          <div class="year"><p>year</p></div>
+          <div class="rating">rating</div>
+          <div class="length">length</div>
+          <div class="description">description</div>
+        
+      </div>
+    </div>
+      <div class="columns">
+        <div class="column is-full"><h2>Places to Watch</h2></div>
+        <div class="columns sources"></div>
+      </div>
+      <div class="columns">
+        <div class="column is-full"><h2>Cast</h2></div>
+        <div class="columns cast"></div>
+      </div>
     </main>
     <script src="assests/script.js"></script>
   </body>
