@@ -1,13 +1,12 @@
-*{
-    background: white; 
+* {
+  background: white;
 }
 header {
-    background-color: orange;
-    text-align: center;
-    padding: 8px;
-    margin-bottom: 12px;
-    
+  background-color: orange;
+  text-align: center;
+  padding: 8px;
+  margin-bottom: 12px;
 }
-.favorite{
-    width: 100%;
+#favorite {
+  width: 100%;
 }
