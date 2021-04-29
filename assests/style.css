@@ -1,40 +1,48 @@
 *{
-    background: #fcecdd; 
+    background: teal; 
 }
 
 @font-face {
-    font-family: slantimport;
-    src: url("SLANT.TTF");
+    font-family: slant;
+    src: url(SLANT.TTF);
 }
-
+#Logo {
+    font-family: slant;
+    text-align: center;
+    font-size: 100px;
+    margin-top: 3rem;
+    color: #ff6701;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    width: 100%;
+}
 .nav-bar {
-    background:#ff6701 ;
+    background:#fea82f ;
     height: 50px;
     width: 100%;
     border-radius: 20px;
+    margin: 0%;
+    padding: 0%;
     
 }
 
 .home-btn {
-    color: #ffc288;
-    background: #fea82f;
+    cursor: pointer;
+    color: black;
+    background: #fcecdd;
     border-radius: 10px;
     height: 50px;
+    
 }
 
-#Logo {
-    text-align: center;
-    font-size: 100px;
-    font-family: slantimport;
-    margin-top: 4em;
-    
-    
-    
+.home-btn:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color: teal;
 }
+
 
 .search-bar {
     position: absolute;
-    top: 50%;
+    top: 20%;
     bottom: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -47,13 +55,18 @@
 }
 
 .search-btn {
-    color: #fcecdd;
+    cursor: pointer;
     float: right;
     width: 40px;
     height: 40px;
     border-radius: 50%;
     background: #fcecdd;
     align-items: center;
+}
+
+.search-btn:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color: teal;
 }
 
 .search-text {
@@ -67,7 +80,27 @@
     transition: 0.4s;
     margin-top:4px ;
     width: 950px;
+    border-radius: 30px;
+    text-align: center;
 
+}
+
+#fav {
+    text-align: center;
+    color: #ff6701;
+    font-size: 100px ;
+    font-family: slant;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.container {
+    justify-content: center;
+    background: transparent;
+    border-style: solid;
+    border-color: #ff6701;
+    border-radius: 10px;
+    width: 100%;
+    height: 100em
 }
 
 
