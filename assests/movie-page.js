@@ -32,6 +32,7 @@ var imgPath = "https://www.themoviedb.org/t/p/w260_and_h390_bestv2";
 var id = 550;
 mediaType = "movie";
 
+// Pull movie or TV information from TMDB and Displays information
 var movieInfo = function () {
   var apiUrl =
     "https://api.themoviedb.org/3/" +
@@ -43,7 +44,6 @@ var movieInfo = function () {
     console.log(response);
     if (response.ok){
     response.json().then(function (data) {
-        
       console.log(data);
       var posterImg = document.createElement("img");
       posterImg.setAttribute("src", imgPath + data.poster_path);
@@ -51,6 +51,7 @@ var movieInfo = function () {
       var movieDetails = document.createElement("div");
       var date = "";
       var name = "";
+      // Logic to display appropriate information based on mediatype of movie or TV
       if (mediaType === "movie") {
         date = data.release_date.slice(0, 4);
         name = data.title;
@@ -99,10 +100,13 @@ var movieInfo = function () {
     if (response.statusText){
         errorCode += " - " + response.statusText;
     }
-    mainEl.innerHTML = "<h2 class = 'title has-text-centered'> We apologize for the incovienance, but there seems to be an error:</br>" + errorCode + "</br>You will be redirected to the main search page soon.</h2>";
+    mainEl.innerHTML = "<h2 class = 'title has-text-centered'> We apologize for the incovienance, but there seems to be an error:</br>" + errorCode; 
+    //+ "</br>You will be redirected to the main search page soon.</h2>";
 }
   });
 };
+
+// Finds the available streaming sources through Watchmode api and displays links
 
 var sourcesInfo = function () {
   var apiUrl =
@@ -111,6 +115,7 @@ var sourcesInfo = function () {
     "_id&search_value=" +
     id;
   fetch(apiUrl).then(function (response) {
+    console.log(response);
       if (response.ok){
     response.json().then(function (data) {
       var innerApiUrl =
@@ -120,14 +125,11 @@ var sourcesInfo = function () {
       fetch(innerApiUrl).then(function (response) {
         response.json().then(function (info) {
           var count = 0;
-
+          //loops through each source location to compare if it is available and supplies link
           for (var i = 0; i < sources.length; i++) {
-            console.log(i);
-
             for (var index = 0; index < info.length; index++) {
               console.log(sources[i].id, info.length);
               if (sources[i].id === info[index].source_id) {
-                console.log("match");
                 var streamLink = document.createElement("div");
                 streamLink.className = "column";
                 streamLink.innerHTML =
@@ -141,8 +143,8 @@ var sourcesInfo = function () {
               }
             }
           }
+          // Display response if no streaming sources are available
           if (count === 0) {
-            console.log("no movies");
             sourcesEl.innerHTML =
               "<p class='column is-full'>There are no streaming sources available for this title. </br>Please visit TMDB for other streaming or rental options:</p><a class='column is-full' href='https://www.themoviedb.org/" + mediaType + "/" + id +"/watch'><img src='./assests/img/tmdb-logo.svg' alt='TMDB logo' width='350' height='150'></a>";
           }
@@ -151,11 +153,12 @@ var sourcesInfo = function () {
       });
     });
 } else{
-    sourcesEl.innerHTML = "There seems to be a problem finding streaming sources, please visit..."
+    sourcesEl.innerHTML = "<p class='column is-full'>There seems to be a problem finding the streaming sources. </br>Please visit an alternate site, TMDB, for available options:</p><a class='column is-full' href='https://www.themoviedb.org/" + mediaType + "/" + id +"/watch'><img src='./assests/img/tmdb-logo.svg' alt='TMDB logo' width='350' height='150'></a>";
 }
   });
 };
 
+// Display cast member information from TMDB api
 var castInfo = function () {
   var apiUrl =
     "https://api.themoviedb.org/3/" +
@@ -200,6 +203,7 @@ var castInfo = function () {
   });
 };
 
+// Click handler to either add or remove movie from favorites list
 var favoritesHandler = function (event) {
   var count = 0;
   for (var i = 0; i < favorites.length; i++) {
@@ -226,6 +230,7 @@ var favoritesHandler = function (event) {
   localStorage.setItem("favorites",JSON.stringify(favorites));
 };
 
+// Pull favorites list from local storage and check to see if current movie is on list
 var loadFavorites = function(){
     var favoriteList = localStorage.getItem("favorites");
     console.log(favoriteList);
@@ -245,5 +250,6 @@ var loadFavorites = function(){
  
 loadFavorites();
 movieInfo();
+// sourcesInfo();
 castInfo();
 favoriteBtnEl.addEventListener("click", favoritesHandler);
