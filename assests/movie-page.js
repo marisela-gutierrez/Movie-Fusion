@@ -3,6 +3,7 @@ var movieInfoEl = document.querySelector("#movie-info");
 var sourcesEl = document.querySelector("#sources");
 var castEl = document.querySelector("#cast");
 var favoriteBtnEl = document.querySelector("#favorite");
+var mainEl = document.querySelector("main");
 var favorites = [];
 var sources = [
   {
@@ -39,7 +40,10 @@ var movieInfo = function () {
     id +
     "?api_key=b7854a2f58fc72f2408614bd5147ec1c&language=en-US";
   fetch(apiUrl).then(function (response) {
+    console.log(response);
+    if (response.ok){
     response.json().then(function (data) {
+        
       console.log(data);
       var posterImg = document.createElement("img");
       posterImg.setAttribute("src", imgPath + data.poster_path);
@@ -88,7 +92,15 @@ var movieInfo = function () {
       }
       movieDetails.innerHTML += "<p class='content'>" + data.overview + "</p>";
       movieInfoEl.appendChild(movieDetails);
+    
     });
+} else {
+    var errorCode = response.status;
+    if (response.statusText){
+        errorCode += " - " + response.statusText;
+    }
+    mainEl.innerHTML = "<h2 class = 'title has-text-centered'> We apologize for the incovienance, but there seems to be an error:</br>" + errorCode + "</br>You will be redirected to the main search page soon.</h2>";
+}
   });
 };
 
@@ -99,6 +111,7 @@ var sourcesInfo = function () {
     "_id&search_value=" +
     id;
   fetch(apiUrl).then(function (response) {
+      if (response.ok){
     response.json().then(function (data) {
       var innerApiUrl =
         "https://api.watchmode.com/v1/title/" +
@@ -137,6 +150,9 @@ var sourcesInfo = function () {
         });
       });
     });
+} else{
+    sourcesEl.innerHTML = "There seems to be a problem finding streaming sources, please visit..."
+}
   });
 };
 
@@ -148,11 +164,12 @@ var castInfo = function () {
     id +
     "/credits?api_key=b7854a2f58fc72f2408614bd5147ec1c&language=en-US";
   fetch(apiUrl).then(function (response) {
+    if (response.ok){
     response.json().then(function (data) {
       for (var i = 0; i < Math.min(data.cast.length, 5); i++) {
         var cardEl = document.createElement("a");
         cardEl.setAttribute("href", "#");
-        cardEl.className = "card column";
+        cardEl.className = "card column is-one-third-mobile has-text-centered-mobile";
         var cardImageEl = document.createElement("div");
         cardImageEl.className = "card-image";
 
@@ -177,6 +194,9 @@ var castInfo = function () {
       }
       console.log(data);
     });
+   } else {
+       castEl.innerHTML = "There were some problems finding cast members for this movie: " + response.statusText;
+   }
   });
 };
 
@@ -198,11 +218,32 @@ var favoritesHandler = function (event) {
       type: mediaType,
     };
     favorites.push(newFav);
-    favoriteBtnEl.classList = "button is-link";
+
+    favoriteBtnEl.classList = "button is-info is-light";
     favoriteBtnEl.textContent = "Remove from Watchlist";
   }
+  console.log(favorites);
+  localStorage.setItem("favorites",JSON.stringify(favorites));
 };
 
+var loadFavorites = function(){
+    var favoriteList = localStorage.getItem("favorites");
+    console.log(favoriteList);
+    if(!favoriteList){
+        return false;
+    }
+    favorites = JSON.parse(favoriteList);
+    console.log(favorites);
+    for (var i = 0; i < favorites.length; i++) {
+        if (favorites[i].id === id) {
+          favoriteBtnEl.classList = "button is-info is-light";
+          favoriteBtnEl.textContent = "Remove from Watchlist";
+          break;
+        }
+      }
+}
+ 
+loadFavorites();
 movieInfo();
 castInfo();
 favoriteBtnEl.addEventListener("click", favoritesHandler);
