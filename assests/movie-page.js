@@ -29,7 +29,7 @@ var sources = [
 ];
 
 var imgPath = "https://www.themoviedb.org/t/p/w260_and_h390_bestv2";
-var id = 155;
+var id = 550;
 mediaType = "movie";
 
 var movieInfo = function () {
@@ -144,7 +144,7 @@ var sourcesInfo = function () {
           if (count === 0) {
             console.log("no movies");
             sourcesEl.innerHTML =
-              "<p>There are no streaming sources available for this title</p>";
+              "<p class='column is-full'>There are no streaming sources available for this title. </br>Please visit TMDB for other streaming or rental options:</p><a class='column is-full' href='https://www.themoviedb.org/" + mediaType + "/" + id +"/watch'><img src='./assests/img/tmdb-logo.svg' alt='TMDB logo' width='350' height='150'></a>";
           }
           console.log(info);
         });
@@ -195,7 +195,7 @@ var castInfo = function () {
       console.log(data);
     });
    } else {
-       castEl.innerHTML = "There were some problems finding cast members for this movie: " + response.statusText;
+       castEl.innerHTML = "There were some problems finding cast members for this show: " + response.statusText;
    }
   });
 };
