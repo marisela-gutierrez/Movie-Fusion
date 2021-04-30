@@ -1,26 +1,19 @@
-*{
-    background: #fcecdd; 
-}
+body {
+    background: #fcecdd;
+  }
+
+
 
 @font-face {
     font-family: slantimport;
     src: url("SLANT.TTF");
 }
 
-.nav-bar {
-    background:#ff6701 ;
-    height: 50px;
-    width: 100%;
-    border-radius: 20px;
-    
+.navbar {
+ background-color: #fea82f;   
 }
 
-.home-btn {
-    color: #ffc288;
-    background: #fea82f;
-    border-radius: 10px;
-    height: 50px;
-}
+
 
 #Logo {
     text-align: center;
