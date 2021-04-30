@@ -2,7 +2,7 @@ var headShotEl = document.querySelector("#head-shot");
 var actorInfoEl = document.querySelector("#actor-info");
 var showsEl = document.querySelector("#shows");
 
-var id = 976;
+var id = 19190;
 var imgPath = "https://www.themoviedb.org/t/p/w260_and_h390_bestv2";
 
 var actorInfo = function (){
@@ -31,11 +31,16 @@ var knownFor = function (){
                 console.log(data);
                 for (var i = 0; i < Math.min(data.cast.length, 10); i++) {
                     var cardEl = document.createElement("div");
-                    // cardEl.setAttribute("href", "#");
                     cardEl.className = "card column m-2 p-0 is-one-quarter is-one-third-mobile is-clipped";
                     var cardHeaderEl = document.createElement("header");
                     cardHeaderEl.classList = "card-header is-shadowless";
-                    cardHeaderEl.innerHTML = "<p class = 'card-header-title is-centered'>" + data.cast[i].title + "</p>";
+                    var title = "";
+                    if (data.cast[i].media_type === "movie"){
+                        title = data.cast[i].title;
+                    } else {
+                        title = data.cast[i].name;
+                    }
+                    cardHeaderEl.innerHTML = "<p class = 'card-header-title is-centered'>" + title + "</p>";
                     
 
                     var cardImageEl = document.createElement("div");
