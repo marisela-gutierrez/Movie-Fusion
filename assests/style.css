@@ -1,6 +1,6 @@
 body {
     background-image: linear-gradient(to right top, #fea82f, #ffb95f, #ffca8a, #ffdbb3, #fcecdd);
-  }
+}
 
 
 .navbar {
@@ -65,7 +65,7 @@ header {
     list-style: none;
   }
 
-  .list-item {
+.list-item {
     margin-bottom: 10px;
     padding: 1.5%;
     border-radius: var(--border-radius);

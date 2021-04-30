@@ -6,7 +6,7 @@ var multiSearchTerm = document.querySelector("#multi-search-term");
 var moviesPath = "data.results[0].(id/media_type/title/poster_path/release_date)";
 var tvPath = "data.results[i].(id/media_type/name/poster_path/first_air_date)";
 var actorsPath = "data.results[i].(id/media_type/name/profile_path)";
-mediaType = "movie" + "tv" + "person";
+
 
 var getMultiSearch = function(searchRequest) {
   // format the multi search api url
@@ -43,22 +43,25 @@ var displaySearch = function(multi, searchTerm) {
   // clear old content
   multiContainerEl.textContent = "";
   multiSearchTerm.textContent = searchTerm;
- 
+  console.log(multi);
   // loop over repos
-  for (var i = 0; i < multi.length; i++) {
+  for (var i = 0; i < multi.results.length; i++) {
     
     // create a container for each search
     var multiEl = document.createElement("div");
     multiEl.classList = "list-item flex-row justify-space-between align-center";
     var name = ""; 
     // Logic to display appropriate information based on mediatype of movie, TV or actor
+    mediaType = multi.results[i].media_type;
     if (mediaType === "movie") {
-      name = moviePath + data.title[i].profile_path;
+      name = multi.results[i].title;
     } else if (mediaType === "tv") {
-      name = tvPath + data.title[i].profile_path;
+      name = multi.results[i].name;
     } else {
-      name = moviePath + data.title[i].profile_path;
+      name = multi.results[i].name;
     }
+
+    
     
     
     // create a span element to hold search name
