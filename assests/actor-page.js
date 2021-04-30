@@ -32,7 +32,7 @@ var knownFor = function (){
                 console.log(data);
                 for (var i = 0; i < Math.min(data.cast.length, 10); i++) {
                     var cardEl = document.createElement("div");
-                    cardEl.className = "card column m-2 p-0 is-one-quarter is-one-third-mobile is-clipped";
+                    cardEl.className = "card column m-2 p-0 is-one-quarter is-two-fifths-mobile is-clipped";
                     var cardHeaderEl = document.createElement("header");
                     cardHeaderEl.classList = "card-header is-shadowless";
                     var title = "";
@@ -89,14 +89,17 @@ var favoritesHandler = function(event){
     var id = parseInt(event.target.getAttribute("data-id"));
     var type = event.target.getAttribute("data-type");
     if (id){
-    console.log(id,type);
+        var btnSelected = document.querySelector("button[data-id='" + id + "']");
+
+    console.log(btnSelected);
     var count = 0;
   for (var i = 0; i < favorites.length; i++) {
     // console.log(favorites[i], id);
     if (favorites[i].id === id) {
       favorites.splice(i, 1);
       count++;
-      console.log(this);
+      btnSelected.classList = "button card-footer-item is-info"
+      btnSelected.textContent = "Save to Favorites";
       break;
     }
   }
@@ -106,11 +109,13 @@ var favoritesHandler = function(event){
       type: type,
     };
     favorites.push(newFav);
+    btnSelected.classList = "button card-footer-item is-info is-light"
+        btnSelected.textContent = "Remove from Favorites";
   }
   console.log(favorites);
   localStorage.setItem("favorites",JSON.stringify(favorites));
-  showsEl.innerHTML="";
-  knownFor();
+//   showsEl.innerHTML="";
+//   knownFor();
     }
 }
 
