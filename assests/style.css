@@ -1,12 +1,69 @@
-* {
-  background: white;
+body {
+    background: #fcecdd;
+  }
+
+
+
+@font-face {
+    font-family: slantimport;
+    src: url("SLANT.TTF");
 }
-header {
-  background-color: orange;
-  text-align: center;
-  padding: 8px;
-  margin-bottom: 12px;
+
+.navbar {
+ background-color: #fea82f;   
 }
-#favorite {
-  width: 100%;
+
+
+
+#Logo {
+    text-align: center;
+    font-size: 100px;
+    font-family: slantimport;
+    margin-top: 4em;
+    
+    
+    
 }
+
+.search-bar {
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fea82f;
+    height: 40px;
+    border-radius: 30px;
+    padding: 10px;
+    width: 1000px;
+    display: flex;
+}
+
+.search-btn {
+    color: #fcecdd;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fcecdd;
+    align-items: center;
+}
+
+.search-text {
+    border:none;
+    background: none;
+    outline: none;
+    float: left;
+    pad: 0;
+    color: white;
+    font-size: 16px;
+    transition: 0.4s;
+    margin-top:4px ;
+    width: 950px;
+
+}
+
+
+
+
+
