@@ -67,5 +67,14 @@ body {
     width: 100%;
 }
 
+header {
+    background-color: orange;
+    text-align: center;
+    padding: 8px;
+    margin-bottom: 12px;
+  
+
+}
+
 
 
