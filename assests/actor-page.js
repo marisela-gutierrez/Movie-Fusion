@@ -1,8 +1,9 @@
 var headShotEl = document.querySelector("#head-shot");
 var actorInfoEl = document.querySelector("#actor-info");
 var showsEl = document.querySelector("#shows");
+var favorites = [];
 
-var id = 19190;
+var id = 976;
 var imgPath = "https://www.themoviedb.org/t/p/w260_and_h390_bestv2";
 
 var actorInfo = function (){
@@ -55,7 +56,20 @@ var knownFor = function (){
                     
                     var cardFooterEl = document.createElement("footer");
                     cardFooterEl.className = "card-footer";
-                    cardFooterEl.innerHTML = "<button class='button card-footer-item is-info'> Save to Favorites</button>";
+                    var cardBtnEl = document.createElement("button");
+                    cardBtnEl.classList = "button card-footer-item is-info"
+                    cardBtnEl.textContent = "Save to Favorites";
+                    cardBtnEl.setAttribute("data-id",data.cast[i].id);
+                    cardBtnEl.setAttribute("data-type",data.cast[i].media_type);
+                    
+                    for (var index = 0; index < favorites.length; index++) {
+                      if (favorites[index].id === data.cast[i].id) {
+                        cardBtnEl.classList = "button card-footer-item is-info is-light"
+                        cardBtnEl.textContent = "Remove from Favorites";
+                        break;
+                      }
+                    }
+                    cardFooterEl.appendChild(cardBtnEl);
                     var movieLinkEl = document.createElement("a");
                     movieLinkEl.setAttribute("href","#");
                     cardEl.appendChild(cardFooterEl);
@@ -70,5 +84,48 @@ var knownFor = function (){
     });
 }
 
+var favoritesHandler = function(event){
+    event.preventDefault();
+    var id = parseInt(event.target.getAttribute("data-id"));
+    var type = event.target.getAttribute("data-type");
+    if (id){
+    console.log(id,type);
+    var count = 0;
+  for (var i = 0; i < favorites.length; i++) {
+    // console.log(favorites[i], id);
+    if (favorites[i].id === id) {
+      favorites.splice(i, 1);
+      count++;
+      console.log(this);
+      break;
+    }
+  }
+  if (count === 0) {
+    var newFav = {
+      id: id,
+      type: type,
+    };
+    favorites.push(newFav);
+  }
+  console.log(favorites);
+  localStorage.setItem("favorites",JSON.stringify(favorites));
+  showsEl.innerHTML="";
+  knownFor();
+    }
+}
+
+var loadFavorites = function(){
+    var favoriteList = localStorage.getItem("favorites");
+    console.log(favoriteList);
+    if(!favoriteList){
+        return false;
+    }
+    favorites = JSON.parse(favoriteList);
+    console.log(favorites);
+  
+}
+
+loadFavorites();
 actorInfo();
 knownFor();
+showsEl.addEventListener("click",favoritesHandler);
