@@ -172,7 +172,7 @@ var castInfo = function () {
       for (var i = 0; i < Math.min(data.cast.length, 5); i++) {
         var cardEl = document.createElement("a");
         cardEl.setAttribute("href", "#");
-        cardEl.className = "card column m-2 p-0 is-one-third-mobile has-text-centered-mobile";
+        cardEl.className = "card column m-2 p-0 is-one-quarter-mobile has-text-centered-mobile";
         var cardImageEl = document.createElement("div");
         cardImageEl.className = "card-image";
 
