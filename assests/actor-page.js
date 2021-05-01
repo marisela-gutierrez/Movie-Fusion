@@ -3,8 +3,22 @@ var actorInfoEl = document.querySelector("#actor-info");
 var showsEl = document.querySelector("#shows");
 var favorites = [];
 
-var id = 976;
 var imgPath = "https://www.themoviedb.org/t/p/w260_and_h390_bestv2";
+var id = 0;
+
+var getId = function () {
+  // grab id from url query string
+  var queryString = document.location.search;
+  console.log(queryString);
+  var actorId = queryString.split("=")[1];
+
+  if (!actorId) {
+    // if no repo was given, redirect to the homepage
+    actorId = 976;
+    // document.location.replace("./index.html");
+  }
+  id = actorId;
+};
 
 var actorInfo = function () {
   apiUrl =
@@ -85,7 +99,13 @@ var knownFor = function () {
           }
           cardFooterEl.appendChild(cardBtnEl);
           var movieLinkEl = document.createElement("a");
-          movieLinkEl.setAttribute("href", "#");
+          movieLinkEl.setAttribute(
+            "href",
+            "./movie.html?id=" +
+              data.cast[i].id +
+              "&type=" +
+              data.cast[i].media_type
+          );
           cardEl.appendChild(cardFooterEl);
           movieLinkEl.appendChild(cardImageEl);
           movieLinkEl.appendChild(cardHeaderEl);
@@ -99,7 +119,7 @@ var knownFor = function () {
 };
 
 var favoritesHandler = function (event) {
-  event.preventDefault();
+  // event.preventDefault();
   var id = parseInt(event.target.getAttribute("data-id"));
   var type = event.target.getAttribute("data-type");
   if (id) {
@@ -143,6 +163,7 @@ var loadFavorites = function () {
   console.log(favorites);
 };
 
+getId();
 loadFavorites();
 actorInfo();
 knownFor();

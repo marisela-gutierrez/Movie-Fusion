@@ -29,8 +29,27 @@ var sources = [
 ];
 
 var imgPath = "https://www.themoviedb.org/t/p/w260_and_h390_bestv2";
-var id = 4108;
-mediaType = "movie";
+var id = 0;
+mediaType = "";
+
+var getMovieInfo = function () {
+  // grab id from url query string
+  var strArr = document.location.search.split(/[&=]+/);
+  console.log(strArr);
+  var movieId = strArr[1];
+  var showType = strArr[3];
+  console.log(movieId, showType);
+
+  if (!movieId || !showType) {
+    // if no movie information was given, redirect to the homepage
+    movieId = 4108;
+    showType = "movie";
+    // document.location.replace("./index.html");
+  }
+  id = parseInt(movieId);
+  mediaType = showType;
+  loadFavorites();
+};
 
 // Pull movie or TV information from TMDB and Displays information
 var movieInfo = function () {
@@ -182,7 +201,10 @@ var castInfo = function () {
       response.json().then(function (data) {
         for (var i = 0; i < Math.min(data.cast.length, 5); i++) {
           var cardEl = document.createElement("a");
-          cardEl.setAttribute("href", "#");
+          cardEl.setAttribute(
+            "href",
+            "./actor-page.html?id=" + data.cast[i].id
+          );
           cardEl.className =
             "card column m-2 is-one-quarter-mobile has-text-centered";
           var cardImageEl = document.createElement("div");
@@ -253,6 +275,7 @@ var loadFavorites = function () {
   }
   favorites = JSON.parse(favoriteList);
   console.log(favorites);
+  console.log(id);
   for (var i = 0; i < favorites.length; i++) {
     if (favorites[i].id === id) {
       favoriteBtnEl.classList = "button is-info is-light";
@@ -262,7 +285,7 @@ var loadFavorites = function () {
   }
 };
 
-loadFavorites();
+getMovieInfo();
 movieInfo();
 // sourcesInfo();
 castInfo();
