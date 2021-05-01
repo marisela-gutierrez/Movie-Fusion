@@ -1,0 +1,89 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: linear-gradient(
+    to right top,
+    #fea82f,
+    #ffb95f,
+    #ffca8a,
+    #ffdbb3,
+    #fcecdd
+  );
+}
+
+.navbar {
+  background-color: #fea82f;
+}
+
+.navbar-brand {
+  font-family: "Anton", sans-serif;
+}
+
+#Logo {
+  text-align: center;
+  font-size: 100px;
+  font-family: "Anton", sans-serif;
+  margin-top: 1em;
+  margin-bottom: 4em;
+  text-shadow: 2px 2px 4px #fea82f;
+}
+
+.search-bar {
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 40px;
+  border-radius: 30px;
+  padding: 10px;
+  width: 1000px;
+  display: flex;
+  padding-bottom: 5px;
+}
+
+.search-text {
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  pad: 0;
+  color: white;
+  font-size: 16px;
+  transition: 0.4s;
+  margin-top: 4px;
+  width: 950px;
+}
+
+#favorite {
+  width: 100%;
+}
+
+header {
+  text-align: center;
+  padding: 8px;
+  margin-bottom: 12px;
+}
+
+.list-group {
+  padding: 0;
+  list-style: none;
+}
+
+.list-item {
+  margin-bottom: 10px;
+  padding: 1.5%;
+  border-radius: var(--border-radius);
+  background-color: var(--light-dark);
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.card,
+.card-header {
+  background-color: rgba(0, 0, 0, 0);
+}
