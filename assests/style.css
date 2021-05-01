@@ -82,3 +82,8 @@ header {
   color: var(--primary);
   text-decoration: none;
 }
+
+.card,
+.card-header {
+  background-color: rgba(0, 0, 0, 0);
+}
