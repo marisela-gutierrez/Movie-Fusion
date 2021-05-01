@@ -48,7 +48,7 @@ var knownFor = function () {
           cardEl.className =
             "card column m-2 p-0 is-one-quarter is-two-fifths-mobile is-2-desktop is-shadowless is-clipped";
           var cardHeaderEl = document.createElement("header");
-          cardHeaderEl.classList = "card-header is-shadowless pb-0 px-0";
+          cardHeaderEl.classList = "card-header is-shadowless p-0";
           var title = "";
           if (data.cast[i].media_type === "movie") {
             title = data.cast[i].title;
@@ -56,9 +56,7 @@ var knownFor = function () {
             title = data.cast[i].name;
           }
           cardHeaderEl.innerHTML =
-            "<p class = 'card-header-title pb-0 px-0 is-centered'>" +
-            title +
-            "</p>";
+            "<p class = 'card-header-title p-0 is-centered'>" + title + "</p>";
 
           var cardImageEl = document.createElement("div");
           cardImageEl.className = "card-image";
