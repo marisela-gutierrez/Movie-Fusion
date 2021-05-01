@@ -1,10 +1,16 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background-image: linear-gradient(to right top, #fea82f, #ffb95f, #ffca8a, #ffdbb3, #fcecdd);
 }
 
 
 .navbar {
- background-color: #fea82f;   
+ background-color: #fea82f;
 }
 
 .navbar-brand {
@@ -31,6 +37,7 @@ body {
     padding: 10px;
     width: 1000px;
     display: flex;
+    padding-bottom: 5px;
 }
 
 
@@ -52,12 +59,11 @@ body {
     width: 100%;
 }
 
+
 header {
     text-align: center;
     padding: 8px;
     margin-bottom: 12px;
-  
-
 }
 
 .list-group {
