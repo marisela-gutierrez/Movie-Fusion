@@ -67,3 +67,4 @@ var displaySearch = function (multi, searchTerm) {
 // getMultiSearch();
 // add event listeners to forms
 searchBarEl.addEventListener("submit", searchHandler);
+multiContainerEl.addEventListener("click", showSaveHandler);
