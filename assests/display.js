@@ -92,10 +92,14 @@ var displayActor = function (data) {
   cardMediaEl.className = "card-content p-0";
   cardMediaEl.innerHTML =
     '<div class="media"><div class="media-content p-0"><p class="subtitle">' +
-    data.name +
-    '</p><p class="content">' +
-    data.character +
-    "</p></div></div>";
+    data.name;
+  if (data.character) {
+    cardMediaEl.innerHTML +=
+      '</p><p class="content">' + data.character + "</p></div></div>";
+  } else {
+    cardMediaEl.innerHTML += "</p></div></div>";
+  }
+
   cardEl.appendChild(cardMediaEl);
   return cardEl;
 };
