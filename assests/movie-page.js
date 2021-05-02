@@ -4,7 +4,7 @@ var sourcesEl = document.querySelector("#sources");
 var castEl = document.querySelector("#cast");
 var favoriteBtnEl = document.querySelector("#favorite");
 var mainEl = document.querySelector("main");
-var favorites = [];
+// var favorites = [];
 var sources = [
   {
     id: 203,
@@ -48,7 +48,7 @@ var getMovieInfo = function () {
   }
   id = parseInt(movieId);
   mediaType = showType;
-  loadFavorites();
+  saveBtnDisplay();
 };
 
 // Pull movie or TV information from TMDB and Displays information
@@ -65,7 +65,8 @@ var movieInfo = function () {
       response.json().then(function (data) {
         console.log(data);
         var posterImg = document.createElement("img");
-        posterImg.setAttribute("src", imgPath + data.poster_path);
+        var imgSrc = imageCheck(data.poster_path);
+        posterImg.setAttribute("src", imgSrc);
         posterEl.appendChild(posterImg);
         var movieDetails = document.createElement("div");
         var date = "";
@@ -200,33 +201,34 @@ var castInfo = function () {
     if (response.ok) {
       response.json().then(function (data) {
         for (var i = 0; i < Math.min(data.cast.length, 5); i++) {
-          var cardEl = document.createElement("a");
-          cardEl.setAttribute(
-            "href",
-            "./actor-page.html?id=" + data.cast[i].id
-          );
-          cardEl.className =
-            "card column m-2 is-one-quarter-mobile has-text-centered";
-          var cardImageEl = document.createElement("div");
-          cardImageEl.className = "card-image";
+          var cardEl = displayActor(data.cast[i]);
+          // var cardEl = document.createElement("a");
+          // cardEl.setAttribute(
+          //   "href",
+          //   "./actor-page.html?id=" + data.cast[i].id
+          // );
+          // cardEl.className =
+          //   "card column m-2 is-one-quarter-mobile has-text-centered";
+          // var cardImageEl = document.createElement("div");
+          // cardImageEl.className = "card-image";
 
-          imgSrc = imgPath + data.cast[i].profile_path;
-          cardImageEl.innerHTML =
-            '<figure class="image"><img src="' +
-            imgSrc +
-            '" alt="' +
-            data.cast[i].name +
-            ' headshot"></figure>';
-          cardEl.appendChild(cardImageEl);
-          var cardMediaEl = document.createElement("div");
-          cardMediaEl.className = "card-content p-0";
-          cardMediaEl.innerHTML =
-            '<div class="media"><div class="media-content p-0"><p class="subtitle">' +
-            data.cast[i].name +
-            '</p><p class="content">' +
-            data.cast[i].character +
-            "</p></div></div>";
-          cardEl.appendChild(cardMediaEl);
+          // imgSrc = imgPath + data.cast[i].profile_path;
+          // cardImageEl.innerHTML =
+          //   '<figure class="image"><img src="' +
+          //   imgSrc +
+          //   '" alt="' +
+          //   data.cast[i].name +
+          //   ' headshot"></figure>';
+          // cardEl.appendChild(cardImageEl);
+          // var cardMediaEl = document.createElement("div");
+          // cardMediaEl.className = "card-content p-0";
+          // cardMediaEl.innerHTML =
+          //   '<div class="media"><div class="media-content p-0"><p class="subtitle">' +
+          //   data.cast[i].name +
+          //   '</p><p class="content">' +
+          //   data.cast[i].character +
+          //   "</p></div></div>";
+          // cardEl.appendChild(cardMediaEl);
           castEl.appendChild(cardEl);
         }
         console.log(data);
@@ -253,11 +255,12 @@ var favoritesHandler = function (event) {
     }
   }
   if (count === 0) {
-    var newFav = {
-      id: id,
-      type: mediaType,
-    };
-    favorites.push(newFav);
+    saveShow(id, mediaType);
+    // var newFav = {
+    //   id: id,
+    //   type: mediaType,
+    // };
+    // favorites.push(newFav);
 
     favoriteBtnEl.classList = "button is-info is-light";
     favoriteBtnEl.textContent = "Remove from Watchlist";
@@ -267,15 +270,7 @@ var favoritesHandler = function (event) {
 };
 
 // Pull favorites list from local storage and check to see if current movie is on list
-var loadFavorites = function () {
-  var favoriteList = localStorage.getItem("favorites");
-  console.log(favoriteList);
-  if (!favoriteList) {
-    return false;
-  }
-  favorites = JSON.parse(favoriteList);
-  console.log(favorites);
-  console.log(id);
+var saveBtnDisplay = function () {
   for (var i = 0; i < favorites.length; i++) {
     if (favorites[i].id === id) {
       favoriteBtnEl.classList = "button is-info is-light";
