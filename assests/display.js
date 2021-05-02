@@ -107,6 +107,7 @@ var saveShow = function (id, type) {
   };
   favorites.push(newFav);
 };
+
 var showSaveHandler = function (event) {
   // event.preventDefault();
   var id = parseInt(event.target.getAttribute("data-id"));

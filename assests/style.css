@@ -41,7 +41,7 @@ body {
   height: 40px;
   border-radius: 30px;
   padding: 10px;
-  width: 1000px;
+  width: 100%;
   display: flex;
   padding-bottom: 5px;
 }
