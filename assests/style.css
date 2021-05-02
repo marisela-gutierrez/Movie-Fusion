@@ -5,6 +5,7 @@
 }
 
 body {
+  min-height: 600px;
   background-image: linear-gradient(
     to right top,
     #fea82f,
@@ -27,15 +28,15 @@ body {
   text-align: center;
   font-size: 100px;
   font-family: "Anton", sans-serif;
-  margin-top: 1em;
-  margin-bottom: 4em;
+  /* margin-top: 0;
+  margin-bottom: 0.75em; */
   text-shadow: 2px 2px 4px #fea82f;
 }
 
 .search-bar {
   position: absolute;
-  top: 50%;
-  bottom: 50%;
+  top: 100%;
+  /* bottom: 50%; */
   left: 50%;
   transform: translate(-50%, -50%);
   height: 40px;
@@ -56,18 +57,18 @@ body {
   font-size: 16px;
   transition: 0.4s;
   margin-top: 4px;
-  width: 950px;
+  width: 95%;
 }
 
 #favorite {
   width: 100%;
 }
 
-header {
+/* header {
   text-align: center;
   padding: 8px;
   margin-bottom: 12px;
-}
+} */
 
 .list-group {
   padding: 0;
@@ -87,3 +88,7 @@ header {
 .card-header {
   background-color: rgba(0, 0, 0, 0);
 }
+
+/* #main-title {
+  height: 250px;
+} */
