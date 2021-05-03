@@ -33,11 +33,7 @@ var displayMovie = function (data) {
   var cardImageEl = document.createElement("div");
   cardImageEl.className = "card-image";
   var imgSrc = imageCheck(data.poster_path);
-  // if (data.poster_path) {
-  //   imgSrc = imgPath + data.poster_path;
-  // } else {
-  //   imgSrc = "https://via.placeholder.com/200x300?text=No+poster+found";
-  // }
+
   cardImageEl.innerHTML =
     '<figure class="image"><img src="' +
     imgSrc +
@@ -80,11 +76,7 @@ var displayActor = function (data) {
   var cardImageEl = document.createElement("div");
   cardImageEl.className = "card-image";
   var imgSrc = imageCheck(data.profile_path);
-  // if (data.profile_path) {
-  //   imgSrc = imgPath + data.profile_path;
-  // } else {
-  //   imgSrc = "https://via.placeholder.com/200x300?text=No+headshot+available";
-  // }
+
   cardImageEl.innerHTML =
     '<figure class="image"><img src="' +
     imgSrc +
@@ -117,14 +109,12 @@ var saveShow = function (id, type) {
 };
 
 var showSaveHandler = function (event) {
-  // event.preventDefault();
   var id = parseInt(event.target.getAttribute("data-id"));
   var type = event.target.getAttribute("data-type");
   if (id) {
     var btnSelected = document.querySelector("button[data-id='" + id + "']");
     var count = 0;
     for (var i = 0; i < favorites.length; i++) {
-      // console.log(favorites[i], id);
       if (favorites[i].id === id) {
         favorites.splice(i, 1);
         count++;
@@ -135,11 +125,7 @@ var showSaveHandler = function (event) {
     }
     if (count === 0) {
       saveShow(id, type);
-      // var newFav = {
-      //   id: id,
-      //   type: type,
-      // };
-      // favorites.push(newFav);
+
       btnSelected.classList = "button card-footer-item is-info is-light";
       btnSelected.textContent = "Remove Favorite";
     }
