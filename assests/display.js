@@ -1,5 +1,9 @@
+var hamburgerEl = document.querySelector(".navbar-burger");
+var navMenuEl = document.querySelector("#navbarLinks");
+
 var favorites = [];
 var imgPath = "https://www.themoviedb.org/t/p/w260_and_h390_bestv2";
+var id=0;
 
 var imageCheck = function (imagePath) {
   var imgSrc = "";
@@ -24,7 +28,7 @@ var displayMovie = function (data) {
     title = data.name;
   }
   cardHeaderEl.innerHTML =
-    "<p class = 'card-header-title p-0 is-centered'>" + title + "</p>";
+    "<p class = 'card-header-title p-0 has-text-centered is-centered'>" + title + "</p>";
 
   var cardImageEl = document.createElement("div");
   cardImageEl.className = "card-image";
@@ -154,4 +158,10 @@ var loadFavorites = function () {
   console.log(favorites);
 };
 
+var hamburgerHandler = function (event){
+  hamburgerEl.classList.toggle("is-active");
+  navMenuEl.classList.toggle("is-active");
+}
+
 loadFavorites();
+hamburgerEl.addEventListener("click",hamburgerHandler);

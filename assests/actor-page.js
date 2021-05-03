@@ -1,10 +1,6 @@
 var headShotEl = document.querySelector("#head-shot");
 var actorInfoEl = document.querySelector("#actor-info");
 var showsEl = document.querySelector("#shows");
-// var favorites = [];
-
-var imgPath = "https://www.themoviedb.org/t/p/w260_and_h390_bestv2";
-var id = 0;
 
 var getId = function () {
   // grab id from url query string

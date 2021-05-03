@@ -4,10 +4,6 @@ var multiContainerEl = document.querySelector("#multi-container");
 var multiSearchTerm = document.querySelector("#multi-search-term");
 var searchResultsEl = document.querySelector("#search-display");
 
-// var moviesPath = "data.results[0].(id/media_type/title/poster_path/release_date)";
-// var tvPath = "data.results[i].(id/media_type/name/poster_path/first_air_date)";
-// var actorsPath = "data.results[i].(id/media_type/name/profile_path)";
-
 var getMultiSearch = function (searchRequest) {
   // format the multi search api url
   var apiUrl =
