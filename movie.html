@@ -5,16 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MovieFusion - Movie</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="assests/style.css" />
   </head>
   <body>
-    <header>Movie/TV Title</header>
+    <!-- Navigation -->
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="./index.html">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+          <span>Movie Fusion</span>
+        </span>
+      </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item">
+          <span class="icon-text">
+            <span class="icon">
+              <i class="fas fa-star"></i>
+            </span>
+            <span>Favorites</span>
+          </span>
+        </a>
+
+        <a class="navbar-item">
+          <span class="icon-text">
+            <span class="icon">
+              <i class="fas fa-search"></i>
+            </span>
+            <span>Search</span>
+          </span>
+        </a>
+      </div>
+
+    </div>
+  </nav>
     <main >
-      <div class="container">
+      <div class="container pt-3">
       <div class="columns">
         <div class="column is-full">
           <button class="button is-info" id = "favorite">Add to Watch List</button>
@@ -32,11 +70,12 @@
       </div>
     </section>
     <section class="section">
-      <div class="columns is-multiline is-mobile" id = "cast">
+      <div class="columns is-multiline is-mobile is-variable is-flex is-justify-content-space-around" id = "cast">
         <div class="column is-full title has-text-centered-mobile"><h2>Cast</h2></div>
       </div>
     </section>
     </main>
+    <script src="assests/display.js"></script>
     <script src="assests/movie-page.js"></script>
   </body>
 </html>
