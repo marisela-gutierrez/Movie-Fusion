@@ -84,11 +84,20 @@ body {
   text-decoration: none;
 }
 
-.card,
+#fav{
+  text-align: center;
+  font-size: 60px;
+  font-weight: 500;
+  text-shadow: 2px 2px black;
+}
+
 .card-header {
   background-color: rgba(0, 0, 0, 0);
 }
 
-/* #main-title {
-  height: 250px;
-} */
+
+
+.container {
+  background: blanchedalmond;
+  height: 800px;
+}
