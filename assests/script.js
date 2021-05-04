@@ -4,6 +4,7 @@ var multiContainerEl = document.querySelector("#multi-container");
 var multiSearchTerm = document.querySelector("#multi-search-term");
 var searchResultsEl = document.querySelector("#search-display");
 
+// An API call based on the search input and display call to show results
 var getMultiSearch = function (searchRequest) {
   // format the multi search api url
   var apiUrl =
@@ -21,6 +22,7 @@ var getMultiSearch = function (searchRequest) {
   });
 };
 
+// Collects search term and sends to multSearch function
 var searchHandler = function (event) {
   event.preventDefault();
   var searchRequest = searchInputEl.value.trim();
@@ -30,6 +32,7 @@ var searchHandler = function (event) {
   }
 };
 
+// Displays search results (max 5) of movies/tv shows or actors
 var displaySearch = function (multi, searchTerm) {
   // check if api returned any multi searches
   multiContainerEl.textContent = "";
@@ -37,8 +40,6 @@ var displaySearch = function (multi, searchTerm) {
     searchResultsEl.textContent = "No Searches found.";
     return;
   }
-  // clear old content
-
   searchResultsEl.innerHTML =
     "<h2 class = 'subtitle column is-full'> Showing movies for:  " + searchTerm;
   console.log(multi);
@@ -54,13 +55,10 @@ var displaySearch = function (multi, searchTerm) {
     } else {
       var cardEl = displayMovie(multi.results[i]);
     }
-
     // append container to the dom
     multiContainerEl.appendChild(cardEl);
   }
 };
 
-// getMultiSearch();
-// add event listeners to forms
 searchBarEl.addEventListener("submit", searchHandler);
 multiContainerEl.addEventListener("click", showSaveHandler);

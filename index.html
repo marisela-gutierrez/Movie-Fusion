@@ -42,7 +42,7 @@
 
       <div id="navbarLinks" class="navbar-menu">
         <div class="navbar-end is-active">
-          <a class="navbar-item bd-navbar-item bd-navbar-item-base">
+          <a class="navbar-item" href="./favpage.html">
             <span class="icon-text">
               <span class="icon">
                 <i class="fas fa-star"></i>
@@ -51,7 +51,7 @@
             </span>
           </a>
 
-          <a class="navbar-item">
+          <a class="navbar-item" href="./index.html">
             <span class="icon-text">
               <span class="icon">
                 <i class="fas fa-search"></i>
@@ -66,6 +66,7 @@
     </nav>
 
     <main>
+      <!-- Logo and search bar -->
       <div class="container" id="main-title">
         <div class="multi-line columns has-text-centered is-mobile">
           <h1 class="title column is-full m-3" id="Logo">Movie Fusion</h1>
@@ -78,6 +79,7 @@
               type="text"
               class="input is-rounded is-black"
               placeholder="Search for your movie"
+              autofocus
             />
             <button type="submit" class="button is-normal">
               <span class="icon">
@@ -87,6 +89,8 @@
           </form>
         </div>
       </div>
+
+      <!-- Container for search results -->
       <div class="section">
         <div
           class="column is-full title has-text-centered"
