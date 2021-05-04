@@ -30,6 +30,7 @@ var sources = [
 
 mediaType = "";
 
+// Grabs information from URL query
 var getMovieInfo = function () {
   // grab id and media type from url query string
   var strArr = document.location.search.split(/[&=]+/);
@@ -40,9 +41,7 @@ var getMovieInfo = function () {
 
   if (!movieId || !showType) {
     // if no movie information was given, redirect to the homepage
-    movieId = 4108;
-    showType = "movie";
-    // document.location.replace("./index.html");
+    document.location.replace("./index.html");
   }
   id = parseInt(movieId);
   mediaType = showType;
@@ -89,12 +88,14 @@ var movieInfo = function () {
         movieDetails.innerHTML =
           "<h2 class='title'>" + name + "<span> (" + date + ")</span></h2>";
         var genres = "";
+        //lists the genres of the movie/show with limit of 5
         for (var i = 0; i < Math.min(data.genres.length, 5); i++) {
           genres += data.genres[i].name;
           if (i + 1 < Math.min(data.genres.length, 5)) {
             genres += ", ";
           }
         }
+        //Shows movie length or tv show seasons/episodes/runtime
         movieDetails.innerHTML += "<p class='subtitle'>" + genres + "</p>";
         if (mediaType === "movie") {
           movieDetails.innerHTML +=
@@ -114,6 +115,7 @@ var movieInfo = function () {
         movieInfoEl.appendChild(movieDetails);
       });
     } else {
+      //Error check on API call
       var errorCode = response.status;
       if (response.statusText) {
         errorCode += " - " + response.statusText;
@@ -127,13 +129,13 @@ var movieInfo = function () {
 };
 
 // Finds the available streaming sources through Watchmode api and displays links
-
 var sourcesInfo = function () {
   var apiUrl =
     "https://api.watchmode.com/v1/search/?apiKey=Mn16itVChM3v7tkB3DIeEwYB6ogYSJiCHvC6jPtC&search_field=tmdb_" +
     mediaType +
     "_id&search_value=" +
     id;
+    //First call to get watchmode id
   fetch(apiUrl).then(function (response) {
     console.log(response);
     if (response.ok) {
@@ -142,6 +144,7 @@ var sourcesInfo = function () {
           "https://api.watchmode.com/v1/title/" +
           data.title_results[0].id +
           "/sources/?apiKey=Mn16itVChM3v7tkB3DIeEwYB6ogYSJiCHvC6jPtC&regions=US";
+          //Second call using the id to get link information
         fetch(innerApiUrl).then(function (response) {
           response.json().then(function (info) {
             var count = 0;
@@ -177,6 +180,7 @@ var sourcesInfo = function () {
         });
       });
     } else {
+      //error checking if no streaming is available
       sourcesEl.innerHTML =
         "<p class='column is-full'>There seems to be a problem finding the streaming sources. </br>Please visit an alternate site, TMDB, for available options:</p><a class='column is-full' href='https://www.themoviedb.org/" +
         mediaType +
@@ -247,6 +251,6 @@ var saveBtnDisplay = function () {
 
 getMovieInfo();
 movieInfo();
-// sourcesInfo();
+sourcesInfo();
 castInfo();
 favoriteBtnEl.addEventListener("click", favoritesHandler);

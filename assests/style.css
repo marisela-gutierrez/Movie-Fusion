@@ -64,12 +64,6 @@ body {
   width: 100%;
 }
 
-/* header {
-  text-align: center;
-  padding: 8px;
-  margin-bottom: 12px;
-} */
-
 .list-group {
   padding: 0;
   list-style: none;
@@ -91,6 +85,7 @@ body {
   text-shadow: 2px 2px black;
 }
 
+.card,
 .card-header {
   background-color: rgba(0, 0, 0, 0);
 }
