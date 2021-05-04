@@ -1,6 +1,7 @@
 var favList = document.querySelector("#fav-list");
 const multiContainerEl = document.querySelector("#multi-container");
 
+
 favoritesDisplay();
 
 function favoritesDisplay() {
