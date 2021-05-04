@@ -5,7 +5,7 @@
 }
 
 body {
-  min-height: 800px;
+  min-height: 100vh;
   background-image: linear-gradient(
     to right top,
     #fea82f,
@@ -84,7 +84,7 @@ body {
   text-decoration: none;
 }
 
-#fav{
+#fav {
   text-align: center;
   font-size: 60px;
   font-weight: 500;
@@ -94,8 +94,6 @@ body {
 .card-header {
   background-color: rgba(0, 0, 0, 0);
 }
-
-
 
 .container {
   /* background: blanchedalmond; */
