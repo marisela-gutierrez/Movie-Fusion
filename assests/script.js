@@ -31,12 +31,14 @@ var searchHandler = function (event) {
 };
 
 var displaySearch = function (multi, searchTerm) {
+  console.log(multi);
   // check if api returned any multi searches
   multiContainerEl.textContent = "";
   if (multi.results.length === 0) {
     searchResultsEl.textContent = "No Searches found.";
     return;
   }
+
   // clear old content
 
   searchResultsEl.innerHTML =

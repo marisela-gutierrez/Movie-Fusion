@@ -5,7 +5,7 @@
 }
 
 body {
-  min-height: 800px;
+  min-height: 100vh;
   background-image: linear-gradient(
     to right top,
     #fea82f,
@@ -97,7 +97,7 @@ body {
 
 
 
-.container {
+/* .container { */
   /* background: blanchedalmond; */
   /* height: 800px; */
-}
+/* } */

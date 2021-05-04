@@ -15,13 +15,13 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
     <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-/>
-<link
-  href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
-  rel="stylesheet"
-/>
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -62,9 +62,24 @@
     <br />
 
     <div class="container">
-    <ul class="fav-list">
-      <li class="list-item">Favorite</li>
-    </ul>
+      <div
+        class="columns is-multiline is-flex is-justify-content-space-around"
+        id="fav-list"
+      ></div>
+    </div>
+
+    <div class="section">
+      <div
+        class="column is-full title has-text-centered"
+        id="search-display"
+      ></div>
+      <div
+        id="multi-container"
+        class="columns is-multiline is-flex is-justify-content-space-around"
+      ></div>
     </div>
   </body>
+
+  <script src="./assests/display.js"></script>
+  <script src="./assests/favpagescript.js"></script>
 </html>
