@@ -33,8 +33,10 @@ body {
   text-shadow: 3px 3px 3px #000000;
 }
 
-.navbar-burger:hover {
+.navbar-burger, .navbar-item:hover {
   color: #fcecdd;
+  border-radius: 15px;
+  text-shadow: none;
 }
 
 .navbar-brand {
@@ -121,7 +123,21 @@ body {
   background-color: rgba(0, 0, 0, 0);
 }
 
+footer {
+  background-color: hsl(0, 0%, 21%);
+  padding: 30px;
+}
+
+footer strong {
+  color: #fea82f;
+}
+
+footer p {
+  color: #fea82f;
+}
 /* .container { */
 /* background: blanchedalmond; */
 /* height: 800px; */
 /* } */
+
+
