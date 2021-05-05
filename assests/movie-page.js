@@ -137,9 +137,10 @@ var sourcesInfo = function () {
     id;
     //First call to get watchmode id
   fetch(apiUrl).then(function (response) {
-    console.log(response);
     if (response.ok) {
       response.json().then(function (data) {
+        console.log(data.title_results);
+        if(data.title_results.length >0){
         var innerApiUrl =
           "https://api.watchmode.com/v1/title/" +
           data.title_results[0].id +
@@ -178,18 +179,25 @@ var sourcesInfo = function () {
             console.log(info);
           });
         });
+        } else {
+          noStreaming(id,mediaType);
+        }
       });
     } else {
       //error checking if no streaming is available
-      sourcesEl.innerHTML =
-        "<p class='column is-full'>There seems to be a problem finding the streaming sources. </br>Please visit an alternate site, TMDB, for available options:</p><a class='column is-full' href='https://www.themoviedb.org/" +
-        mediaType +
-        "/" +
-        id +
-        "/watch'><img src='./assests/img/tmdb-logo.svg' alt='TMDB logo' width='350' height='150'></a>";
+      noStreaming(id,mediaType);
     }
   });
 };
+
+var noStreaming = function(id,mediaType){
+  sourcesEl.innerHTML =
+  "<p class='column is-full'>There seems to be a problem finding the streaming sources. </br>Please visit an alternate site, TMDB, for available options:</p><a class='column is-full' href='https://www.themoviedb.org/" +
+  mediaType +
+  "/" +
+  id +
+  "/watch'><img src='./assests/img/tmdb-logo.svg' alt='TMDB logo' width='350' height='150'></a>";
+}
 
 // Display cast member information from TMDB api
 var castInfo = function () {

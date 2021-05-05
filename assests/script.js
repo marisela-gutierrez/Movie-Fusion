@@ -15,6 +15,25 @@ var topRated = function () {
     if (response.ok) {
       response.json().then(function (data) {
         console.log(data);
+
+        var can = document.querySelector('#canvas1');
+        var ctx = can.getContext('2d');
+        can.width = 2000;
+        can.height = 300;
+        var img=[];
+
+        for (var i = 0; i < Math.min(10, data.results.length); i++) {
+          img[i] = document.createElement("img");
+          img[i].src = imgPath + data.results[i].poster_path;
+        }
+
+        window.onload = heroDisplay(can,ctx,img);
+
+
+
+
+
+
         for (var i = 0; i < Math.min(5, data.results.length); i++) {
           var cardEl = displayMovie(data.results[i],"movie");
           posterEl.appendChild(cardEl);
@@ -26,6 +45,28 @@ var topRated = function () {
     }
   });
 };
+
+var heroDisplay = function(can,ctx,img){
+  var imgWidth = -250;
+  var scrollSpeed = 5;
+  console.log(img);
+  var loop = function(){
+    for (var i=0; i<10; i++){
+    ctx.drawImage(img[i], imgWidth - (250*i), 0);
+    }
+    for (var i=0; i<10; i++){
+      ctx.drawImage(img[i], imgWidth - (250*i) + 250*10, 0);
+      }
+    imgWidth += scrollSpeed;
+    if (imgWidth === 250*9){
+      imgWidth = -250;
+    }
+    window.requestAnimationFrame(loop);
+  }
+  loop();
+  
+}
+
 
 // An API call based on the search input and display call to show results
 var getMultiSearch = function (searchRequest) {
