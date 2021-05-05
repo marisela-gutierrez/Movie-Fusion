@@ -7,7 +7,7 @@
     <title>Movie Fusion</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Kanit:wght@600&display=swap"
       rel="stylesheet"
     />
     <link
@@ -67,10 +67,13 @@
 
     <main>
       <!-- Logo and search bar -->
+      <div class="title column is-full mt-5" id="Logo">Movie Fusion</div>
       <div class="container" id="main-title">
         <div class="multi-line columns has-text-centered is-mobile">
-          <h1 class="title column is-full m-3" id="Logo">Movie Fusion</h1>
-
+          <div class="column is-full mb-2 has-text-centered" id="sub-logo">
+            <P>Selections for everyone.</P>
+          </div>
+          
           <form id="searchBar" class="search-bar">
             <label class="label" for="search"></label>
             <input
@@ -81,7 +84,7 @@
               placeholder="Search for your movie"
               autofocus
             />
-            <button type="submit" class="button is-normal">
+            <button type="submit" class="button is-normal"id="searchBtn">
               <span class="icon">
                 <i class="fas fa-search"></i>
               </span>
