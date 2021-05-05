@@ -4,6 +4,7 @@
   padding: 0;
 }
 
+
 body {
   min-height: 100vh;
   background-image: linear-gradient(
@@ -12,12 +13,16 @@ body {
     #ffb95f,
     #ffca8a,
     #ffdbb3,
-    #fcecdd
-  );
+    #fcecdd,
 }
 
 .navbar {
-  background-color: #fea82f;
+  background-color:hsl(0, 0%, 21%);
+}
+
+.navbar-item {
+  color: #fea82f;
+  text-shadow: 3px 3px 5px #000000;
 }
 
 .navbar-brand {
@@ -26,11 +31,16 @@ body {
 
 #Logo {
   text-align: center;
-  font-size: 100px;
+  font-size: 110px;
   font-family: "Anton", sans-serif;
   /* margin-top: 0;
   margin-bottom: 0.75em; */
-  text-shadow: 2px 2px 4px #fea82f;
+  text-shadow: 3px 4px 4px #a3650f;
+}
+
+#sub-logo {
+  font-size: 35px;
+  font-family: 'Kanit', sans-serif;
 }
 
 .search-bar {
@@ -41,7 +51,7 @@ body {
   transform: translate(-50%, -50%);
   height: 40px;
   border-radius: 30px;
-  padding: 10px;
+  padding: 30px;
   width: 100%;
   display: flex;
   padding-bottom: 5px;
@@ -60,9 +70,19 @@ body {
   width: 95%;
 }
 
+#searchBtn {
+  border-radius: 1em;
+  border-color:hsl(0, 0%, 21%);
+}
+
 #favorite {
   width: 100%;
+  background-color:#faa42b ;
+  border-radius: 1em;
+  border-color:hsl(0, 0%, 21%);
+  border-style: groove;
 }
+
 
 .list-group {
   padding: 0;
