@@ -87,7 +87,7 @@ var displayActor = function (data) {
   //links card to correct actor page
   var cardEl = document.createElement("a");
   cardEl.setAttribute("href", "./actor-page.html?id=" + data.id);
-  cardEl.className = "card column m-2 is-one-quarter-mobile has-text-centered";
+  cardEl.className = "card column m-2 is-one-quarter-mobile has-text-centered is-centered";
   //Displays the actors headshot
   var cardImageEl = document.createElement("div");
   cardImageEl.className = "card-image";

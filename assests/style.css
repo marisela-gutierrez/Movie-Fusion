@@ -15,9 +15,23 @@ body {
     #fcecdd
   );
 }
-
+canvas {
+  opacity: 0.4;
+  position: absolute;
+}
 .navbar {
-  background-color: #fea82f;
+  /* background-color: #fea82f; */
+  background-color: hsl(0, 0%, 21%);
+}
+
+.navbar-burger,
+.navbar-item {
+  color: #fea82f;
+  text-shadow: 3px 3px 3px #000000;
+}
+
+.navbar-burger:hover {
+  color: #fcecdd;
 }
 
 .navbar-brand {
@@ -89,8 +103,3 @@ body {
 .card-header {
   background-color: rgba(0, 0, 0, 0);
 }
-
-/* .container { */
-/* background: blanchedalmond; */
-/* height: 800px; */
-/* } */
