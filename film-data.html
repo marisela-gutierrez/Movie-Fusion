@@ -66,65 +66,26 @@
     </nav>
 
     <main>
-      <!-- Logo and search bar -->
-      <canvas id="canvas1"></canvas>
-      <div class="title column is-full mt-5" id="Logo">Movie Fusion</div>
-      <div class="container" id="main-title">
-        
-        <div class="multi-line columns has-text-centered is-mobile">
-          <div class="column is-full mb-2 has-text-centered" id="sub-logo">
-            <P>Selections for everyone.</P>
-          </div>
-          
-          <form id="searchBar" class="search-bar">
-            <label class="label" for="search"></label>
-            <input
-              name="search"
-              id="search"
-              type="text"
-              class="input is-rounded is-black"
-              placeholder="Search for your movie"
-              autofocus
-            />
-            <button type="submit" class="button is-normal"id="searchBtn">
-              <span class="icon">
-                <i class="fas fa-search"></i>
-              </span>
-            </button>
-          </form>
-          
-        </div>
-      </div>
-
-      <!-- Container for search results -->
-      <div class="section">
-        <div
-          class="column is-full title has-text-centered"
-          id="search-display"
-        ></div>
-        <div
-          id="multi-container"
-          class="columns is-multiline is-flex is-justify-content-space-around"
-        ></div>
-      </div>
-
-      <section>
-        <div class=" subtitle column is-full title has-text-centered">Top 5 Most Popular Movies</div>
-        
-          <div class="mt-0 mb-3 columns is-multiline is-flex is-justify-content-space-around" id="poster"></div>
-       
+      <section class="section has-text-centered">
+        <h1 class="title is-1">Film Data</h1>
+        <p class="subtitle">
+          All film-ralated data used in Movie Fusion, including movie, tv, actor, release dates and images is provided by 
+          <a href="https://www.themoviedb.org/" target="_blank" rel="noopener noreferrer">The Movie Database API</a>.
+        </p>
+        <p class="subtitle is-6">
+          <strong>This product uses the TMDb API but is not endorsed or certified by TMDb.</strong>
+        </p>
+        <img class="mt-6" src="./assests/img/tmdb-logo.svg" width="250" height="250">
       </section>
     </main>
 
-    <footer>
+    <footer id="film-footer">
       <div class="content has-text-centered">
         <p>
           <strong>Movie Fusion</strong> <a href="./film-data.html">Film data</a> by
           <a href="https://www.themoviedb.org/" target="_blank" rel="noopener noreferrer">TMDb</a>.
         </p>
       </div>
-    </footer>
-    <script src="./assests/display.js"></script>
-    <script src="./assests/script.js"></script>
+    </footer> 
   </body>
 </html>
