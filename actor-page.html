@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MovieFusion - Movie</title>
+    <title>MovieFusion - Actor</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css"
@@ -13,21 +13,31 @@
     <link rel="stylesheet" href="assests/style.css" />
 </head>
 <body>
-    <nav class="navbar is-mobile" role="navigation" aria-label="main navigation">
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-          <a class="navbar-item" href="/">
+
+          <a class="navbar-item" href="./index.html">
             <span class="icon-text">
               <span class="icon">
                 <i class="fas fa-home"></i>
               </span>
-              <span>Home</span>
+              <span>Movie Fusion</span>
             </span>
           </a>
+
+          <a class="navbar-burger" data-target="navbarLinks">
+            <span></span>
+            <span></span>
+            <span></span>
+          </a>
+
         </div>
-      
-        <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-end">
-            <a class="navbar-item">
+  
+        <div id="navbarLinks" class="navbar-menu">
+          <div class="navbar-end is-active">
+
+            <a class="navbar-item" href="./favpage.html">
               <span class="icon-text">
                 <span class="icon">
                   <i class="fas fa-star"></i>
@@ -35,8 +45,8 @@
                 <span>Favorites</span>
               </span>
             </a>
-      
-            <a class="navbar-item">
+  
+            <a class="navbar-item" href="./index.html">
               <span class="icon-text">
                 <span class="icon">
                   <i class="fas fa-search"></i>
@@ -44,22 +54,26 @@
                 <span>Search</span>
               </span>
             </a>
+
           </div>
         </div>
       </nav>
-      <div class="container">
+    
+      <!-- Placeholders for headshot and actor information -->
+    <div class="container pt-3">
         <div class="columns">
             <div class="column is-one-third is-offset-one-third-mobile" id="head-shot"></div>
             <div class="column is-two-thirds has-text-centered-mobile" id="actor-info"> 
-          </div>
-    </div>
-    <section class="section">
-    <div class="column is-full title has-text-centered-mobile"><h2>Known For:</h2></div>
-    
-        <div class="columns is-multiline is-flex is-justify-content-space-around" id = "shows">
-          
         </div>
-      </section>
+    </div>
+
+    <!-- Section to diplay shows the actor has been in -->
+    <section class="section">
+      <div class="column is-full title has-text-centered-mobile"><h2>Known For:</h2></div>
+      <div class="columns is-multiline is-flex is-justify-content-space-around" id = "shows"></div>
+    </section>
+    
+    <script src="assests/display.js"></script> 
     <script src="assests/actor-page.js"></script> 
 </body>
 </html>

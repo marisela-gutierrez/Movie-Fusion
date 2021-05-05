@@ -16,66 +16,83 @@
   </head>
   <body>
     <!-- Navigation -->
-  <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="./index.html">
-        <span class="icon-text">
-          <span class="icon">
-            <i class="fas fa-home"></i>
-          </span>
-          <span>Movie Fusion</span>
-        </span>
-      </a>
-    </div>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
 
-    <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-end">
-        <a class="navbar-item">
+        <a class="navbar-item" href="./index.html">
           <span class="icon-text">
             <span class="icon">
-              <i class="fas fa-star"></i>
+              <i class="fas fa-home"></i>
             </span>
-            <span>Favorites</span>
+            <span>Movie Fusion</span>
           </span>
         </a>
 
-        <a class="navbar-item">
-          <span class="icon-text">
-            <span class="icon">
-              <i class="fas fa-search"></i>
-            </span>
-            <span>Search</span>
-          </span>
+        <a class="navbar-burger" data-target="navbarLinks">
+          <span></span>
+          <span></span>
+          <span></span>
         </a>
+        
       </div>
 
-    </div>
-  </nav>
-    <header class="mt-4">Movie/TV Title</header>
-    <main >
-      <div class="container">
-      <div class="columns">
-        <div class="column is-full">
-          <button class="button is-info" id = "favorite">Add to Watch List</button>
+      <div id="navbarLinks" class="navbar-menu">
+        <div class="navbar-end is-active">
+
+          <a class="navbar-item" href="./favpage.html">
+            <span class="icon-text">
+              <span class="icon">
+                <i class="fas fa-star"></i>
+              </span>
+              <span>Favorites</span>
+            </span>
+          </a>
+
+          <a class="navbar-item" href="./index.html">
+            <span class="icon-text">
+              <span class="icon">
+                <i class="fas fa-search"></i>
+              </span>
+              <span>Search</span>
+            </span>
+          </a>
+
         </div>
       </div>
-      <div class="columns">
-        <div class="column is-one-third is-offset-one-third-mobile" id="poster"></div>
-        <div class="column is-two-thirds has-text-centered-mobile" id="movie-info"> 
+    </nav>
+
+    <main >
+      <div class="container pt-3">
+        <div class="columns">
+          <!-- Save button -->
+          <div class="column is-full">
+            <button class="button is-info" id = "favorite">Add to Watch List</button>
+          </div>
+        </div>
+
+        <!-- Container to hold movie poster and information -->
+        <div class="columns">
+          <div class="column is-one-third is-offset-one-third-mobile" id="poster"></div>
+          <div class="column is-two-thirds has-text-centered-mobile" id="movie-info"> 
+        </div>
       </div>
-    </div>
-    <section class="section">
-      <div class="columns is-multiline">
-        <div class="column is-full title has-text-centered-mobile"><h2>Places to Watch</h2></div>
-        <div class="columns is-mobile is-multiline has-text-centered-mobile" id="sources"></div>
-      </div>
-    </section>
-    <section class="section">
-      <div class="columns is-multiline is-mobile is-variable is-flex is-justify-content-space-around" id = "cast">
-        <div class="column is-full title has-text-centered-mobile"><h2>Cast</h2></div>
-      </div>
-    </section>
+
+      <!-- Section for available streaming sources -->
+      <section class="section">
+        <div class="columns is-multiline">
+          <div class="column is-full title has-text-centered-mobile"><h2>Places to Watch</h2></div>
+          <div class="columns is-mobile is-multiline has-text-centered-mobile" id="sources"></div>
+        </div>
+      </section>
+
+    <!-- Section to display cast members -->
+      <section class="section">
+        <div class="columns is-multiline is-mobile is-variable is-flex is-justify-content-space-around" id = "cast">
+          <div class="column is-full title has-text-centered-mobile"><h2>Cast</h2></div>
+        </div>
+      </section>
     </main>
+    <script src="assests/display.js"></script>
     <script src="assests/movie-page.js"></script>
   </body>
 </html>
