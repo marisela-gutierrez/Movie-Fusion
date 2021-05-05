@@ -10,7 +10,7 @@ var imgPath = "https://www.themoviedb.org/t/p/w260_and_h390_bestv2";
 
 var topRated = function () {
   var apiUrl =
-    "https://api.themoviedb.org/3/movie/top_rated?api_key=b7854a2f58fc72f2408614bd5147ec1c&language=en-US&page=1";
+    "https://api.themoviedb.org/3/movie/popular?api_key=b7854a2f58fc72f2408614bd5147ec1c&language=en-US&page=1";
   fetch(apiUrl).then(function (response) {
     if (response.ok) {
       response.json().then(function (data) {
@@ -87,3 +87,4 @@ var displaySearch = function (multi, searchTerm) {
 topRated();
 searchBarEl.addEventListener("submit", searchHandler);
 multiContainerEl.addEventListener("click", showSaveHandler);
+posterEl.addEventListener("click", showSaveHandler);
