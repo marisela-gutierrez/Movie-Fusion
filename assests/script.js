@@ -33,9 +33,18 @@ var topRated = function () {
 
 var displayRated = function(ratedImg) {
   var ratedEl = document.createElement("div");
-    ratedEl.classList = "list-item flex-row justify-space-between align-center";
+    ratedEl.className = "";
   var img = document.createElement("img");
   img.setAttribute("src", imgPath + ratedImg);
+  img.className = "card column m-1 p-0 is-one-quarter is-two-fifths-mobile is-2-desktop is-shadowless is-clipped";
+  
+
+  var ratedLinkEl = document.createElement("a");
+  ratedLinkEl.setAttribute(
+    "href",
+    "./movie.html?id=" + ratedImg.id
+  );
+  img.appendChild(ratedLinkEl);
 
   return img;
 }

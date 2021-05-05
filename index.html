@@ -7,7 +7,7 @@
     <title>Movie Fusion</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Kanit:wght@600&display=swap"
       rel="stylesheet"
     />
     <link
@@ -57,20 +57,17 @@
         </div>
       </div>
     </nav>
-    <!-- hero --->
-    <section class="hero">
-      <div class="columns">
-        <div class="columns is-multiline is-flex is-justify-content-space-around" id="poster"></div>
-      </div>
-    </section>
-    <!--end of hero-->
+  
 
     <main>
+      <div class="title column is-full mt-5" id="Logo">Movie Fusion</div>
+
       <div class="container" id="main-title">
         <div class="multi-line columns has-text-centered is-mobile">
-          <h1 class="title column is-full mt-5 m-3" id="Logo">Movie Fusion</h1>
-          <h2 class="column is-full">Selections for everyone.</h2>
-
+          <div class="column is-full mt-1 has-text-centered" id="sub-logo">
+            <P>Selections for everyone.</P>
+          </div>
+          
           <form id="searchBar" class="search-bar">
             <label class="label" for="search"></label>
             <input
@@ -80,7 +77,7 @@
               class="input is-rounded is-black"
               placeholder="Search for your movie"
             />
-            <button type="submit" class="button is-normal">
+            <button type="submit" class="button is-normal" id="searchBtn">
               <span class="icon">
                 <i class="fas fa-search"></i>
               </span>
@@ -88,7 +85,7 @@
           </form>
         </div>
       </div>
-      <div class="section">
+      <div class="section" id="section">
         <div
           class="column is-full title has-text-centered"
           id="search-display"
@@ -98,6 +95,13 @@
           class="columns is-multiline is-flex is-justify-content-space-around"
         ></div>
       </div>
+
+      <section>
+        <div class=" subtitle column is-full title has-text-centered">Top 5 Rated Movies</div>
+        <div class="columns">
+          <div class="mt-0 mb-3 columns is-multiline is-flex is-justify-content-center" id="poster"></div>
+        </div>
+      </section>
     </main>
     <script src="./assests/display.js"></script>
     <script src="./assests/script.js"></script>
