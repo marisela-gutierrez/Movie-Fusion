@@ -22,6 +22,7 @@
       href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./assests/style.css" />
   </head>
   <body>
     <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -34,9 +35,16 @@
             <span>Movie Fusion</span>
           </span>
         </a>
+
+        <a class="navbar-burger" data-target="navbarLinks">
+          <span></span>
+          <span></span>
+          <span></span>
+        </a>
       </div>
-      <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-end">
+
+      <div id="navbarLinks" class="navbar-menu">
+        <div class="navbar-end is-active">
           <a class="navbar-item" href="./favpage.html">
             <span class="icon-text">
               <span class="icon">
@@ -45,7 +53,8 @@
               <span>Favorites</span>
             </span>
           </a>
-          <a class="navbar-item">
+
+          <a class="navbar-item" href="./index.html">
             <span class="icon-text">
               <span class="icon">
                 <i class="fas fa-search"></i>
@@ -56,6 +65,7 @@
         </div>
       </div>
     </nav>
+
     <div>
       <h1 id="fav">Favorites</h1>
     </div>

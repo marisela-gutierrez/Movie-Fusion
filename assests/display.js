@@ -3,7 +3,7 @@ var navMenuEl = document.querySelector("#navbarLinks");
 
 var favorites = [];
 var imgPath = "https://www.themoviedb.org/t/p/w260_and_h390_bestv2";
-var id=0;
+var id = 0;
 
 // check to see if an image exists.  Returns correct path to existing image or placeholder image otherwise
 var imageCheck = function (imagePath) {
@@ -17,24 +17,31 @@ var imageCheck = function (imagePath) {
 };
 
 // Function to display either movie or tv show with save button and title
-var displayMovie = function (data) {
-  console.log("in display movie")
-  console.log(data)
-  
+var displayMovie = function (data, type) {
+  console.log("in display movie");
+  console.log(data);
+
   var cardEl = document.createElement("div");
   cardEl.className =
     "card column m-2 p-0 is-one-quarter is-two-fifths-mobile is-2-desktop is-shadowless is-clipped";
   // Displays title of movie/show
+  if (type) {
+    var mediaType = type;
+  } else {
+    var mediaType = data.media_type;
+  }
   var cardHeaderEl = document.createElement("header");
   cardHeaderEl.classList = "card-header is-shadowless p-0";
   var title = "";
-  if (data.media_type === "movie") {
-    title = data.title;
-  } else {
+  if (mediaType === "tv") {
     title = data.name;
+  } else {
+    title = data.title;
   }
   cardHeaderEl.innerHTML =
-    "<p class = 'card-header-title p-0 has-text-centered is-centered'>" + title + "</p>";
+    "<p class = 'card-header-title p-0 has-text-centered is-centered'>" +
+    title +
+    "</p>";
   //Displays the movie/show poster image
   var cardImageEl = document.createElement("div");
   cardImageEl.className = "card-image";
@@ -52,7 +59,7 @@ var displayMovie = function (data) {
   cardBtnEl.classList = "button card-footer-item is-info";
   cardBtnEl.textContent = "Save to Favorites";
   cardBtnEl.setAttribute("data-id", data.id);
-  cardBtnEl.setAttribute("data-type", data.media_type);
+  cardBtnEl.setAttribute("data-type", mediaType);
   //Loop to check if movie is already in Local Storage and give appropriate display
   for (var index = 0; index < favorites.length; index++) {
     if (favorites[index].id === data.id) {
@@ -66,7 +73,7 @@ var displayMovie = function (data) {
   var movieLinkEl = document.createElement("a");
   movieLinkEl.setAttribute(
     "href",
-    "./movie.html?id=" + data.id + "&type=" + data.media_type
+    "./movie.html?id=" + data.id + "&type=" + mediaType
   );
   cardEl.appendChild(cardFooterEl);
   movieLinkEl.appendChild(cardImageEl);
@@ -98,7 +105,7 @@ var displayActor = function (data) {
   cardMediaEl.innerHTML =
     '<div class="media"><div class="media-content p-0"><p class="subtitle">' +
     data.name;
-    //Check to see if a character name is available to display
+  //Check to see if a character name is available to display
   if (data.character) {
     cardMediaEl.innerHTML +=
       '</p><p class="content">' + data.character + "</p></div></div>";
@@ -159,11 +166,10 @@ var loadFavorites = function () {
 };
 
 // Navbar display on touch screens for hamburger button
-var hamburgerHandler = function (event){
+var hamburgerHandler = function (event) {
   hamburgerEl.classList.toggle("is-active");
   navMenuEl.classList.toggle("is-active");
-}
+};
 
 loadFavorites();
-hamburgerEl.addEventListener("click",hamburgerHandler);
-
+hamburgerEl.addEventListener("click", hamburgerHandler);
