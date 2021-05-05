@@ -21,9 +21,14 @@ body {
   background-color: hsl(0, 0%, 21%);
 }
 
+.navbar-burger,
 .navbar-item {
   color: #fea82f;
-  text-shadow: 3px 3px 5px #000000;
+  text-shadow: 3px 3px 3px #000000;
+}
+
+.navbar-burger:hover {
+  color: #fcecdd;
 }
 
 .navbar-brand {
