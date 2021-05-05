@@ -91,7 +91,6 @@ body {
 
 #favorite {
   width: 100%;
-  background-color:#faa42b ;
   border-radius: 1em;
   border-color:hsl(0, 0%, 21%);
   border-style: groove;
@@ -123,9 +122,15 @@ body {
   background-color: rgba(0, 0, 0, 0);
 }
 
+#film-footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
 footer {
   background-color: hsl(0, 0%, 21%);
-  padding: 30px;
+  padding: 20px;
 }
 
 footer strong {
