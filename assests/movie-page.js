@@ -283,5 +283,3 @@ favoriteBtnEl.addEventListener("click", favoritesHandler);
 
 
 
-
-
