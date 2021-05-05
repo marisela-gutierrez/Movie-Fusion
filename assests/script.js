@@ -18,12 +18,13 @@ var topRated = function () {
 
         var can = document.querySelector('#canvas1');
         var ctx = can.getContext('2d');
-        can.width = 2000;
-        can.height = 300;
+        can.width = 2500;
+        can.height = 250;
         var img=[];
 
         for (var i = 0; i < Math.min(10, data.results.length); i++) {
           img[i] = document.createElement("img");
+          img[i].height = 250;
           img[i].src = imgPath + data.results[i].poster_path;
         }
 
@@ -48,7 +49,7 @@ var topRated = function () {
 
 var heroDisplay = function(can,ctx,img){
   var imgWidth = -250;
-  var scrollSpeed = 5;
+  var scrollSpeed = 2.5;
   console.log(img);
   var loop = function(){
     for (var i=0; i<10; i++){

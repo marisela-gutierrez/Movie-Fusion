@@ -15,7 +15,10 @@ body {
     #fcecdd
   );
 }
-
+canvas {
+  opacity: 0.4;
+  position: absolute;
+}
 .navbar {
   /* background-color: #fea82f; */
   background-color: hsl(0, 0%, 21%);
