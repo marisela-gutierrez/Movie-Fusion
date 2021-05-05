@@ -225,14 +225,14 @@ var favoritesHandler = function (event) {
       favorites.splice(i, 1);
       count++;
       favoriteBtnEl.classList = "button is-info";
-      favoriteBtnEl.textContent = "Add to Watchlist";
+      favoriteBtnEl.textContent = "Add to Favorites";
       break;
     }
   }
   if (count === 0) {
     saveShow(id, mediaType);
     favoriteBtnEl.classList = "button is-info is-light";
-    favoriteBtnEl.textContent = "Remove from Watchlist";
+    favoriteBtnEl.textContent = "Remove from Favorites";
   }
   console.log(favorites);
   localStorage.setItem("favorites", JSON.stringify(favorites));
@@ -243,7 +243,7 @@ var saveBtnDisplay = function () {
   for (var i = 0; i < favorites.length; i++) {
     if (favorites[i].id === id) {
       favoriteBtnEl.classList = "button is-info is-light";
-      favoriteBtnEl.textContent = "Remove from Watchlist";
+      favoriteBtnEl.textContent = "Remove from Favorites";
       break;
     }
   }
