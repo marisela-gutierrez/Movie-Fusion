@@ -18,6 +18,9 @@ var imageCheck = function (imagePath) {
 
 // Function to display either movie or tv show with save button and title
 var displayMovie = function (data) {
+  console.log("in display movie")
+  console.log(data)
+  
   var cardEl = document.createElement("div");
   cardEl.className =
     "card column m-2 p-0 is-one-quarter is-two-fifths-mobile is-2-desktop is-shadowless is-clipped";
@@ -163,3 +166,4 @@ var hamburgerHandler = function (event){
 
 loadFavorites();
 hamburgerEl.addEventListener("click",hamburgerHandler);
+

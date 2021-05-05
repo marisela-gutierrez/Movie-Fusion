@@ -254,3 +254,34 @@ movieInfo();
 sourcesInfo();
 castInfo();
 favoriteBtnEl.addEventListener("click", favoritesHandler);
+
+
+
+
+
+// function addItem() {
+// 
+  // localStorage.setItem('favorites', 'value');
+// }
+// 
+// createItem()
+// 
+// function getValue() {
+  // return localStorage.getItem('favorites');
+// }
+// 
+// console.log(getValue());
+// 
+
+  // var ul = document.getElementById("fav-list");
+  // var favorites = document.getElementById("favorites");
+  // var li = document.createElement("li");
+  // li.setAttribute('id', favorites.value);
+  // li.appendChild(document.createTextNode(favorites.value));
+  // ul.appendChild(li);
+
+
+
+
+
+

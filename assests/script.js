@@ -34,6 +34,7 @@ var searchHandler = function (event) {
 
 // Displays search results (max 5) of movies/tv shows or actors
 var displaySearch = function (multi, searchTerm) {
+  console.log(multi);
   // check if api returned any multi searches
   multiContainerEl.textContent = "";
   if (multi.results.length === 0) {
