@@ -7,7 +7,7 @@
     <title>Movie Fusion</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Anton&family=Kanit:wght@600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
       rel="stylesheet"
     />
     <link
@@ -64,17 +64,13 @@
         </div>
       </div>
     </nav>
-  
 
     <main>
-      <div class="title column is-full mt-5" id="Logo">Movie Fusion</div>
-
+      <!-- Logo and search bar -->
       <div class="container" id="main-title">
         <div class="multi-line columns has-text-centered is-mobile">
-          <div class="column is-full mt-1 has-text-centered" id="sub-logo">
-            <P>Selections for everyone.</P>
-          </div>
-          
+          <h1 class="title column is-full m-3" id="Logo">Movie Fusion</h1>
+
           <form id="searchBar" class="search-bar">
             <label class="label" for="search"></label>
             <input
@@ -85,7 +81,7 @@
               placeholder="Search for your movie"
               autofocus
             />
-            <button type="submit" class="button is-normal" id="searchBtn">
+            <button type="submit" class="button is-normal">
               <span class="icon">
                 <i class="fas fa-search"></i>
               </span>
@@ -94,7 +90,9 @@
           
         </div>
       </div>
-      <div class="section" id="section">
+
+      <!-- Container for search results -->
+      <div class="section">
         <div
           class="column is-full title has-text-centered"
           id="search-display"
@@ -104,13 +102,6 @@
           class="columns is-multiline is-flex is-justify-content-space-around"
         ></div>
       </div>
-
-      <section>
-        <div class=" subtitle column is-full title has-text-centered">Top 5 Rated Movies</div>
-        <div class="columns">
-          <div class="mt-0 mb-3 columns is-multiline is-flex is-justify-content-center" id="poster"></div>
-        </div>
-      </section>
     </main>
     <script src="./assests/display.js"></script>
     <script src="./assests/script.js"></script>
