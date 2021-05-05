@@ -24,11 +24,10 @@ var topRated = function () {
 
         for (var i = 0; i < Math.min(10, data.results.length); i++) {
           img[i] = document.createElement("img");
-          img[i].height = 250;
           img[i].src = imgPath + data.results[i].poster_path;
         }
 
-        window.onload = heroDisplay(can,ctx,img);
+        window.onload = heroDisplay(ctx,img);
 
 
 
@@ -47,7 +46,7 @@ var topRated = function () {
   });
 };
 
-var heroDisplay = function(can,ctx,img){
+var heroDisplay = function(ctx,img){
   var imgWidth = -250;
   var scrollSpeed = 2.5;
   console.log(img);
