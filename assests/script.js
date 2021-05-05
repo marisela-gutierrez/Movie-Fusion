@@ -20,7 +20,7 @@ var topRated = function () {
       response.json().then(function (data) {
         console.log(data);
         for (var i = 0; i < Math.min(5, data.results.length); i++) {
-          var cardEl = displayRated(data.results[i].poster_path);
+          var cardEl = displayMovie(data.results[i],"movie");
           posterEl.appendChild(cardEl);
         }
         
