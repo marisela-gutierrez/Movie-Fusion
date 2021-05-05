@@ -4,10 +4,6 @@ var multiContainerEl = document.querySelector("#multi-container");
 var multiSearchTerm = document.querySelector("#multi-search-term");
 var searchResultsEl = document.querySelector("#search-display");
 var posterEl = document.querySelector("#poster");
-
-// var moviesPath = "data.results[0].(id/media_type/title/poster_path/release_date)";
-// var tvPath = "data.results[i].(id/media_type/name/poster_path/first_air_date)";
-// var actorsPath = "data.results[i].(id/media_type/name/profile_path)";
 var imgPath = "https://www.themoviedb.org/t/p/w260_and_h390_bestv2";
 
 //hero
@@ -26,33 +22,12 @@ var topRated = function () {
         
       });
     } else {
-      alert("Error: Top rated Not Found");
+      posterEl.textContent = "We encountered a problem with loading the top rated movies"
     }
   });
 };
 
-var displayRated = function(ratedImg) {
-  var ratedEl = document.createElement("div");
-    ratedEl.className = "";
-  var img = document.createElement("img");
-  img.setAttribute("src", imgPath + ratedImg);
-  img.className = "card column m-1 p-0 is-one-quarter is-two-fifths-mobile is-2-desktop is-shadowless is-clipped";
-  
-
-  var ratedLinkEl = document.createElement("a");
-  ratedLinkEl.setAttribute(
-    "href",
-    "./movie.html?id=" + ratedImg.id
-  );
-  img.appendChild(ratedLinkEl);
-
-  return img;
-}
-
-//hero end
-
-
-
+// An API call based on the search input and display call to show results
 var getMultiSearch = function (searchRequest) {
   // format the multi search api url
   var apiUrl =
@@ -70,6 +45,7 @@ var getMultiSearch = function (searchRequest) {
   });
 };
 
+// Collects search term and sends to multSearch function
 var searchHandler = function (event) {
   event.preventDefault();
   var searchRequest = searchInputEl.value.trim();
@@ -79,15 +55,15 @@ var searchHandler = function (event) {
   }
 };
 
+// Displays search results (max 5) of movies/tv shows or actors
 var displaySearch = function (multi, searchTerm) {
+  console.log(multi);
   // check if api returned any multi searches
   multiContainerEl.textContent = "";
   if (multi.results.length === 0) {
     searchResultsEl.textContent = "No Searches found.";
     return;
   }
-  // clear old content
-
   searchResultsEl.innerHTML =
     "<h2 class = 'subtitle column is-full'> Showing movies for:  " + searchTerm;
   console.log(multi);
@@ -103,14 +79,10 @@ var displaySearch = function (multi, searchTerm) {
     } else {
       var cardEl = displayMovie(multi.results[i]);
     }
-
     // append container to the dom
     multiContainerEl.appendChild(cardEl);
   }
 };
 
-topRated();
-// getMultiSearch();
-// add event listeners to forms
 searchBarEl.addEventListener("submit", searchHandler);
 multiContainerEl.addEventListener("click", showSaveHandler);

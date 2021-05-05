@@ -4,19 +4,31 @@
   padding: 0;
 }
 
-
 body {
-  min-height: 600px;
-  background-image: linear-gradient(to right top, #fea82f, #fea52e, #fda22d, #fd9f2c, #fc9c2b, #fca138, #fda544, #fdaa4f, #feb768, #ffc381, #ffcf9a, #ffdbb3);
+  min-height: 100vh;
+  background-image: linear-gradient(
+    to right top,
+    #fea82f,
+    #ffb95f,
+    #ffca8a,
+    #ffdbb3,
+    #fcecdd
+  );
 }
 
 .navbar {
-  background-color:hsl(0, 0%, 21%);
+  /* background-color: #fea82f; */
+  background-color: hsl(0, 0%, 21%);
 }
 
+.navbar-burger,
 .navbar-item {
   color: #fea82f;
-  text-shadow: 3px 3px 5px #000000;
+  text-shadow: 3px 3px 3px #000000;
+}
+
+.navbar-burger:hover {
+  color: #fcecdd;
 }
 
 .navbar-brand {
@@ -25,16 +37,11 @@ body {
 
 #Logo {
   text-align: center;
-  font-size: 110px;
+  font-size: 100px;
   font-family: "Anton", sans-serif;
   /* margin-top: 0;
   margin-bottom: 0.75em; */
-  text-shadow: 3px 4px 4px #a3650f;
-}
-
-#sub-logo {
-  font-size: 35px;
-  font-family: 'Kanit', sans-serif;
+  text-shadow: 2px 2px 4px #fea82f;
 }
 
 .search-bar {
@@ -45,7 +52,7 @@ body {
   transform: translate(-50%, -50%);
   height: 40px;
   border-radius: 30px;
-  padding: 30px;
+  padding: 10px;
   width: 100%;
   display: flex;
   padding-bottom: 5px;
@@ -64,24 +71,9 @@ body {
   width: 95%;
 }
 
-#searchBtn {
-  border-radius: 1em;
-  border-color:hsl(0, 0%, 21%);
-}
-
 #favorite {
   width: 100%;
-  background-color:#faa42b ;
-  border-radius: 1em;
-  border-color:hsl(0, 0%, 21%);
-  border-style: groove;
 }
-
-/* header {
-  text-align: center;
-  padding: 8px;
-  margin-bottom: 12px;
-} */
 
 .list-group {
   padding: 0;
@@ -97,11 +89,19 @@ body {
   text-decoration: none;
 }
 
+#fav {
+  text-align: center;
+  font-size: 60px;
+  font-weight: 500;
+  text-shadow: 2px 2px black;
+}
+
 .card,
 .card-header {
   background-color: rgba(0, 0, 0, 0);
 }
 
-/* #main-title {
-  height: 250px;
-} */
+/* .container { */
+/* background: blanchedalmond; */
+/* height: 800px; */
+/* } */
