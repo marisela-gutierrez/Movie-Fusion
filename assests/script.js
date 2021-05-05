@@ -84,5 +84,6 @@ var displaySearch = function (multi, searchTerm) {
   }
 };
 
+topRated();
 searchBarEl.addEventListener("submit", searchHandler);
 multiContainerEl.addEventListener("click", showSaveHandler);
