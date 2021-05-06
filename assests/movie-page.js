@@ -34,10 +34,8 @@ mediaType = "";
 var getMovieInfo = function () {
   // grab id and media type from url query string
   var strArr = document.location.search.split(/[&=]+/);
-  console.log(strArr);
   var movieId = strArr[1];
   var showType = strArr[3];
-  console.log(movieId, showType);
 
   if (!movieId || !showType) {
     // if no movie information was given, redirect to the homepage
@@ -57,7 +55,6 @@ var movieInfo = function () {
     id +
     "?api_key=b7854a2f58fc72f2408614bd5147ec1c&language=en-US";
   fetch(apiUrl).then(function (response) {
-    console.log(response);
     if (response.ok) {
       response.json().then(function (data) {
         console.log(data);
@@ -123,7 +120,6 @@ var movieInfo = function () {
       mainEl.innerHTML =
         "<h2 class = 'title has-text-centered'> We apologize for the incovienance, but there seems to be an error:</br>" +
         errorCode;
-      //+ "</br>You will be redirected to the main search page soon.</h2>";
     }
   });
 };
@@ -139,7 +135,6 @@ var sourcesInfo = function () {
   fetch(apiUrl).then(function (response) {
     if (response.ok) {
       response.json().then(function (data) {
-        console.log(data.title_results);
         if(data.title_results.length >0){
         var innerApiUrl =
           "https://api.watchmode.com/v1/title/" +
@@ -152,7 +147,6 @@ var sourcesInfo = function () {
             //loops through each source location to compare if it is available and supplies link
             for (var i = 0; i < sources.length; i++) {
               for (var index = 0; index < info.length; index++) {
-                console.log(sources[i].id, info.length);
                 if (sources[i].id === info[index].source_id) {
                   var streamLink = document.createElement("div");
                   streamLink.className = "column";
@@ -174,7 +168,7 @@ var sourcesInfo = function () {
                 mediaType +
                 "/" +
                 id +
-                "/watch'><img src='./assests/img/tmdb-logo.svg' alt='TMDB logo' width='350' height='150'></a>";
+                "/watch' target='_blank'><img src='./assests/img/tmdb-logo.svg' alt='TMDB logo' width='350' height='150'></a>";
             }
             console.log(info);
           });
@@ -196,7 +190,7 @@ var noStreaming = function(id,mediaType){
   mediaType +
   "/" +
   id +
-  "/watch'><img src='./assests/img/tmdb-logo.svg' alt='TMDB logo' width='350' height='150'></a>";
+  "/watch' target='_blank'><img src='./assests/img/tmdb-logo.svg' alt='TMDB logo' width='350' height='150'></a>";
 }
 
 // Display cast member information from TMDB api
@@ -228,7 +222,6 @@ var castInfo = function () {
 var favoritesHandler = function (event) {
   var count = 0;
   for (var i = 0; i < favorites.length; i++) {
-    console.log(favorites[i], id);
     if (favorites[i].id === id) {
       favorites.splice(i, 1);
       count++;
@@ -262,32 +255,3 @@ movieInfo();
 sourcesInfo();
 castInfo();
 favoriteBtnEl.addEventListener("click", favoritesHandler);
-
-
-
-
-
-// function addItem() {
-// 
-  // localStorage.setItem('favorites', 'value');
-// }
-// 
-// createItem()
-// 
-// function getValue() {
-  // return localStorage.getItem('favorites');
-// }
-// 
-// console.log(getValue());
-// 
-
-  // var ul = document.getElementById("fav-list");
-  // var favorites = document.getElementById("favorites");
-  // var li = document.createElement("li");
-  // li.setAttribute('id', favorites.value);
-  // li.appendChild(document.createTextNode(favorites.value));
-  // ul.appendChild(li);
-
-
-
-

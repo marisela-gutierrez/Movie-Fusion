@@ -5,7 +5,6 @@ var showsEl = document.querySelector("#shows");
 var getId = function () {
   // grab id from url query string
   var queryString = document.location.search;
-  console.log(queryString);
   var actorId = queryString.split("=")[1];
 
   if (!actorId) {

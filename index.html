@@ -7,7 +7,7 @@
     <title>Movie Fusion</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Kanit:wght@600&display=swap"
       rel="stylesheet"
     />
     <link
@@ -23,6 +23,7 @@
 
   <body>
     <!-- Navigation -->
+    <div class="wrap">
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item" href="./index.html">
@@ -68,11 +69,14 @@
     <main>
       <!-- Logo and search bar -->
       <canvas id="canvas1"></canvas>
+      <div class="title column is-full mt-5" id="Logo">Movie Fusion</div>
       <div class="container" id="main-title">
         
         <div class="multi-line columns has-text-centered is-mobile">
-          <h1 class="title column is-full m-3" id="Logo">Movie Fusion</h1>
-
+          <div class="column is-full mb-2 has-text-centered" id="sub-logo">
+            <P>Selections for everyone.</P>
+          </div>
+          
           <form id="searchBar" class="search-bar">
             <label class="label" for="search"></label>
             <input
@@ -83,7 +87,7 @@
               placeholder="Search for your movie"
               autofocus
             />
-            <button type="submit" class="button is-normal">
+            <button type="submit" class="button is-normal"id="searchBtn">
               <span class="icon">
                 <i class="fas fa-search"></i>
               </span>
@@ -112,7 +116,17 @@
        
       </section>
     </main>
+
+    <footer id="footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong>Movie Fusion</strong> <a href="./film-data.html">Film data</a> by
+          <a href="https://www.themoviedb.org/" target="_blank" rel="noopener noreferrer">TMDb</a>.
+        </p>
+      </div>
+    </footer>
     <script src="./assests/display.js"></script>
     <script src="./assests/script.js"></script>
+  </div>
   </body>
 </html>

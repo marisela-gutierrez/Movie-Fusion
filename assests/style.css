@@ -9,10 +9,17 @@ body {
   background-image: linear-gradient(
     to right top,
     #fea82f,
-    #ffb95f,
-    #ffca8a,
-    #ffdbb3,
-    #fcecdd
+    #fea52e,
+    #fda22d,
+    #fd9f2c,
+    #fc9c2b,
+    #fca138,
+    #fda544,
+    #fdaa4f,
+    #feb768,
+    #ffc381,
+    #ffcf9a,
+    #ffdbb3
   );
 }
 canvas {
@@ -20,7 +27,6 @@ canvas {
   position: absolute;
 }
 .navbar {
-  /* background-color: #fea82f; */
   background-color: hsl(0, 0%, 21%);
 }
 
@@ -30,8 +36,11 @@ canvas {
   text-shadow: 3px 3px 3px #000000;
 }
 
-.navbar-burger:hover {
+.navbar-burger,
+.navbar-item:hover {
   color: #fcecdd;
+  border-radius: 15px;
+  text-shadow: none;
 }
 
 .navbar-brand {
@@ -40,17 +49,19 @@ canvas {
 
 #Logo {
   text-align: center;
-  font-size: 100px;
+  font-size: 110px;
   font-family: "Anton", sans-serif;
-  /* margin-top: 0;
-  margin-bottom: 0.75em; */
-  text-shadow: 2px 2px 4px #fea82f;
+  text-shadow: 3px 4px 4px #a3650f;
+}
+
+#sub-logo {
+  font-size: 35px;
+  font-family: "Kanit", sans-serif;
 }
 
 .search-bar {
   position: absolute;
   top: 100%;
-  /* bottom: 50%; */
   left: 50%;
   transform: translate(-50%, -50%);
   height: 40px;
@@ -74,8 +85,16 @@ canvas {
   width: 95%;
 }
 
+#searchBtn {
+  border-radius: 1em;
+  border-color: hsl(0, 0%, 21%);
+}
+
 #favorite {
   width: 100%;
+  border-radius: 1em;
+  border-color: hsl(0, 0%, 21%);
+  border-style: groove;
 }
 
 .list-group {
@@ -102,4 +121,31 @@ canvas {
 .card,
 .card-header {
   background-color: rgba(0, 0, 0, 0);
+}
+
+#film-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+#footer,
+#film-footer {
+  background-color: hsl(0, 0%, 21%);
+  padding: 20px;
+}
+
+#footer strong,
+#film-footer strong {
+  color: #fea82f;
+}
+
+#footer p,
+#film-footer p {
+  color: #fea82f;
+}
+
+#footer a:hover,
+#film-footer a:hover {
+  color: #ffdbb3;
 }
