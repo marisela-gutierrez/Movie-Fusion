@@ -1,6 +1,7 @@
 var favList = document.querySelector("#fav-list");
 const multiContainerEl = document.querySelector("#multi-container");
 
+// Loop through all favorites to be displayed and a check if none are stored
 function favoritesDisplay() {
   if (favorites.length === 0) {
     multiContainerEl.textContent =
@@ -12,8 +13,8 @@ function favoritesDisplay() {
   }
 }
 
+// Finds the movie information for API call using the stored id and media type
 async function movieInfo(id, type) {
-  console.log(type);
   const apiUrl =
     "https://api.themoviedb.org/3/" +
     type +
@@ -25,9 +26,6 @@ async function movieInfo(id, type) {
 
   if (response.ok) {
     const data = await response.json();
-
-    const multiEl = document.createElement("div");
-    multiEl.classList = "list-item flex-row justify-space-between align-center";
     console.log(data);
     const cardEl = displayMovie(data, type);
     multiContainerEl.appendChild(cardEl);

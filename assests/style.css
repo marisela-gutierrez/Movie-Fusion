@@ -7,26 +7,26 @@
 body {
   min-height: 100vh;
   background-image: linear-gradient(
-    to right top, 
-    #fea82f, 
-    #fea52e, 
-    #fda22d, 
-    #fd9f2c, 
-    #fc9c2b, 
-    #fca138, 
-    #fda544, 
-    #fdaa4f, 
-    #feb768, 
-    #ffc381, 
-    #ffcf9a, 
-    #ffdbb3);
+    to right top,
+    #fea82f,
+    #fea52e,
+    #fda22d,
+    #fd9f2c,
+    #fc9c2b,
+    #fca138,
+    #fda544,
+    #fdaa4f,
+    #feb768,
+    #ffc381,
+    #ffcf9a,
+    #ffdbb3
+  );
 }
 canvas {
   opacity: 0.4;
   position: absolute;
 }
 .navbar {
-  /* background-color: #fea82f; */
   background-color: hsl(0, 0%, 21%);
 }
 
@@ -36,7 +36,8 @@ canvas {
   text-shadow: 3px 3px 3px #000000;
 }
 
-.navbar-burger, .navbar-item:hover {
+.navbar-burger,
+.navbar-item:hover {
   color: #fcecdd;
   border-radius: 15px;
   text-shadow: none;
@@ -50,20 +51,17 @@ canvas {
   text-align: center;
   font-size: 110px;
   font-family: "Anton", sans-serif;
-  /* margin-top: 0;
-  margin-bottom: 0.75em; */
   text-shadow: 3px 4px 4px #a3650f;
 }
 
 #sub-logo {
   font-size: 35px;
-  font-family: 'Kanit', sans-serif;
+  font-family: "Kanit", sans-serif;
 }
 
 .search-bar {
   position: absolute;
   top: 100%;
-  /* bottom: 50%; */
   left: 50%;
   transform: translate(-50%, -50%);
   height: 40px;
@@ -89,13 +87,13 @@ canvas {
 
 #searchBtn {
   border-radius: 1em;
-  border-color:hsl(0, 0%, 21%);
+  border-color: hsl(0, 0%, 21%);
 }
 
 #favorite {
   width: 100%;
   border-radius: 1em;
-  border-color:hsl(0, 0%, 21%);
+  border-color: hsl(0, 0%, 21%);
   border-style: groove;
 }
 
@@ -125,27 +123,29 @@ canvas {
   background-color: rgba(0, 0, 0, 0);
 }
 
-#film-footer{
+#film-footer {
   position: absolute;
   bottom: 0;
   width: 100%;
 }
 
-#footer {
+#footer,
+#film-footer {
   background-color: hsl(0, 0%, 21%);
   padding: 20px;
 }
 
-#footer strong {
+#footer strong,
+#film-footer strong {
   color: #fea82f;
 }
 
-#footer p {
+#footer p,
+#film-footer p {
   color: #fea82f;
 }
-/* .container { */
-/* background: blanchedalmond; */
-/* height: 800px; */
-/* } */
 
-
+#footer a:hover,
+#film-footer a:hover {
+  color: #ffdbb3;
+}

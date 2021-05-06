@@ -18,9 +18,6 @@ var imageCheck = function (imagePath) {
 
 // Function to display either movie or tv show with save button and title
 var displayMovie = function (data, type) {
-  console.log("in display movie");
-  console.log(data);
-
   var cardEl = document.createElement("div");
   cardEl.className =
     "card column m-2 p-0 is-one-quarter is-two-fifths-mobile is-2-desktop is-shadowless is-clipped";
@@ -112,7 +109,6 @@ var displayActor = function (data) {
   } else {
     cardMediaEl.innerHTML += "</p></div></div>";
   }
-
   cardEl.appendChild(cardMediaEl);
   return cardEl;
 };
@@ -148,7 +144,6 @@ var showSaveHandler = function (event) {
       btnSelected.classList = "button card-footer-item is-info is-light";
       btnSelected.textContent = "Remove Favorite";
     }
-    console.log(favorites);
     //Set updated list to localStorage
     localStorage.setItem("favorites", JSON.stringify(favorites));
   }
@@ -157,7 +152,6 @@ var showSaveHandler = function (event) {
 //Loads favorites array from localStorage
 var loadFavorites = function () {
   var favoriteList = localStorage.getItem("favorites");
-  console.log(favoriteList);
   if (!favoriteList) {
     return false;
   }
