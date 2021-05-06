@@ -131,16 +131,16 @@ canvas {
   width: 100%;
 }
 
-footer {
+#footer {
   background-color: hsl(0, 0%, 21%);
   padding: 20px;
 }
 
-footer strong {
+#footer strong {
   color: #fea82f;
 }
 
-footer p {
+#footer p {
   color: #fea82f;
 }
 /* .container { */
